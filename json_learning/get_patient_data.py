@@ -1,5 +1,8 @@
 import streamlit as st
 import json
+import os
+
+full_path = os.path.join('json_learning', 'MyAnalytics.v2-composition.example.json')
 
 from json_learning.clinical_condition import clinical_cond,previous_state,hba1c_records,other_analyses_records,current_medication,symptomatic
 
@@ -46,14 +49,14 @@ def patient_EHRs():
     current_BMI,current_eGFR,current_UACR=other_analyses_records()
 
     # Let's ask about the clinical condition :
-    obesity,elderly,frailty,chronic_kidney_disease,heart_failure,established_CVD=clinical_cond(age,current_eGFR,current_UACR)
+    obesity,frailty,heart_failure,established_CVD=clinical_cond()
 
     st.write("#")
     st.write("#")
 
     if(isinstance(age, int) and treatment_not_empty(current_drugs,previous_state_) and all_hba1czz_are_floats(hba1c_records_)==True and isinstance(current_eGFR, float) and isinstance(current_UACR, float) and isinstance(current_BMI, float) and len(name)>0):
         # Opening JSON file
-        with open("json_learning\MyAnalytics.v2-composition.example.json", 'r') as openfile:
+        with open(full_path, 'r') as openfile:
             # Reading from json file
             json_object = json.load(openfile)
 

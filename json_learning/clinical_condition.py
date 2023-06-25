@@ -6,25 +6,16 @@ full_dose= "full dose"
 #----------------------------------------------------------------------------------------------
 
 # Let's ask about the clinical condition :
-def clinical_cond(age,current_eGFR,current_UACR):
+def clinical_cond():
     st.sidebar.title("Clinical condition:")
     # Obesity: 
     obesity = st.sidebar.selectbox(
         "Obesity:",
         ('NO', 'YES'))
-    # >75 years-old:
-    if(isinstance(age, int)):
-        elderly='YES' if age>75 else 'NO'
-    else:
-        elderly="Unknown !"
     # frailty:
     frailty = st.sidebar.selectbox(
         "Frailty:",
         ('NO', 'YES'))
-    # Chronic kidney disease:
-    chronic_kidney_disease='Unknown !'
-    if (isinstance(current_eGFR, float) and isinstance(current_UACR, float)):
-        chronic_kidney_disease='NO' if current_eGFR>=60 and current_UACR<=30 else 'YES'
     # Heart Failure:
     heart_failure = st.sidebar.selectbox(
         "Heart Failure:",
@@ -33,7 +24,7 @@ def clinical_cond(age,current_eGFR,current_UACR):
     established_CVD = st.sidebar.selectbox(
         "Established CVD:",
         ('NO', 'YES'))
-    return(obesity,elderly,frailty,chronic_kidney_disease,heart_failure,established_CVD)
+    return(obesity,frailty,heart_failure,established_CVD)
 
 #-----------------------------------------------------------------------------------------------------------    
 def previous_state():    

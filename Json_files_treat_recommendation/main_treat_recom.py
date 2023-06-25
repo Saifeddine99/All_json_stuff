@@ -22,6 +22,7 @@ def main_get_treat():
     if(json_file is not None):
         patient_data = json.load(json_file)
         name,age,obesity,frailty,heart_failure,established_CVD,symptoms,current_UACR,current_eGFR,current_BMI,current_drugs,hba1c_records=extract_data(patient_data)
+        
         elderly='YES' if age>75 else 'NO'
         chronic_kidney_disease='NO' if current_eGFR>=60 and current_UACR<=30 else 'YES'
 
