@@ -53,7 +53,7 @@ def patient_EHRs():
 
     if(isinstance(age, int) and treatment_not_empty(current_drugs,previous_state_) and all_hba1czz_are_floats(hba1c_records_)==True and isinstance(current_eGFR, float) and isinstance(current_UACR, float) and isinstance(current_BMI, float) and len(name)>0):
         # Opening JSON file
-        with open("MyAnalytics.v2-composition.example.json", 'r') as openfile:
+        with open("json_learning\MyAnalytics.v2-composition.example.json", 'r') as openfile:
             # Reading from json file
             json_object = json.load(openfile)
 
