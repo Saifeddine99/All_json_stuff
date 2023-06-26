@@ -1,9 +1,10 @@
 def medications(drugs_string):
     med_dict={}
-    drugs_list=drugs_string.split('/')
-    for drug in drugs_list:
-        drug_name,dose=drug.split(':')
-        med_dict[drug_name]=dose
+    if(len(drugs_string)>0):
+        drugs_list=drugs_string.split('/')
+        for drug in drugs_list:
+            drug_name,dose=drug.split(':')
+            med_dict[drug_name]=dose
     return(med_dict)
 
 def hba1c_records_list(hba1c):
