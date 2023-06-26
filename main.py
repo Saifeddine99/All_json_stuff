@@ -33,11 +33,11 @@ if selected=="Home":
     unsafe_allow_html = True
     )
     st.markdown(
-    "<h1 style='color: #000d1a;'>1/Click on 'Create json' to create a Json file in the OpenEHR standards form.  </h1>", 
+    "<h1 style='color: #000d1a;'>1/Click on 'Create json' to create a Json file in the OpenEHR standards format.  </h1>", 
     unsafe_allow_html = True
     )
     st.markdown(
-    "<h1 style='color: #000d1a;'>2/Click on 'Get treatment' to enter your EHRs and get treatment.  </h1>", 
+    "<h1 style='color: #000d1a;'>2/Click on 'Get treatment' to enter your EHRs's json file and get treatment.  </h1>", 
     unsafe_allow_html = True
     )
 
