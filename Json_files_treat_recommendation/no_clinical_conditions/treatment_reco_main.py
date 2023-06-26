@@ -61,7 +61,7 @@ def recommended_treatment(med_dose_last_time,hba1c_records,target,symptoms):
             proposed_med["You can choose any item from this list: {}".format(second_or_third_med_level)]=medium_dose
     # Here we're working on Metformin + only one drug from the list
     elif ((len(med_dose_last_time)==2 and not("nonpharmacological therapy" in med_dose_last_time) and not("Basal insulin" in med_dose_last_time) and ("Metformin" in med_dose_last_time)) or (("nonpharmacological therapy" in med_dose_last_time) and not("Basal insulin" in med_dose_last_time) and len(med_dose_last_time)==3 and ("Metformin" in med_dose_last_time))):
-        if(symptoms=="YES" and current_hba1c>9):
+        if(symptoms=="YES" and current_hba1c>9 and not("nonpharmacological therapy" in med_dose_last_time)):
             proposed_med={} 
             proposed_med["Metformin"]=full_dose
             proposed_med["Basal insulin"]=full_dose
