@@ -9,16 +9,41 @@ def find_item_1(med_dose_last_time):
             item=key
     return(item)
 
-def recommended_treatment(med_dose_last_time,current_hba1c,target,current_symptoms_situation):
+def recommended_treatment(med_dose_last_time,hba1c_records,target,symptoms):
 
     #this is the list of the second/third level medications
     second_or_third_med_level=['DPP4i', 'SGLT2i', 'oral GLP1ra', 'Pio', 'SU']
+
+    current_hba1c=hba1c_records[0]
+    previous_hba1c=hba1c_records[1]
+    if (len(hba1c_records)==3):
+        before_previous_hba1c=hba1c_records[2]
 
     proposed_med=med_dose_last_time
     
 #Here we are working on the case of a user using only nonpharmacological therapy
     if (("nonpharmacological therapy" in med_dose_last_time) and len(med_dose_last_time)==1):
-        proposed_med["Metformin"]=medium_dose
+        if(current_hba1c>=7):
+            proposed_med["Metformin"]=medium_dose
+
+        elif (len(hba1c_records)==2):
+            if(previous_hba1c<7):
+                proposed_med=med_dose_last_time
+            else:
+                proposed_med={"this_cond":"Doesn't exist"}
+                
+        elif(len(hba1c_records)==3):
+            if(6.5<=previous_hba1c<7 and 6.5<=before_previous_hba1c<7):
+                proposed_med["Metformin"]=medium_dose
+            elif (previous_hba1c>=7 or before_previous_hba1c>=7):
+                proposed_med={"this_cond":"Doesn't exist"}
+            elif (previous_hba1c<6.5 or before_previous_hba1c<6.5):
+                proposed_med=med_dose_last_time
+            else:
+                proposed_med={"this_cond":"Doesn't exist"}
+
+        else:
+            proposed_med={"this_cond":"Doesn't exist"}
 
     #Here we'll be working on the case of someone using only metformin
     elif ((("nonpharmacological therapy" in med_dose_last_time) and ("Metformin" in med_dose_last_time) and len(med_dose_last_time)==2) or (("Metformin" in med_dose_last_time) and len(med_dose_last_time)==1)):
@@ -36,10 +61,7 @@ def recommended_treatment(med_dose_last_time,current_hba1c,target,current_sympto
             proposed_med["You can choose any item from this list: {}".format(second_or_third_med_level)]=medium_dose
     # Here we're working on Metformin + only one drug from the list
     elif ((len(med_dose_last_time)==2 and not("nonpharmacological therapy" in med_dose_last_time) and not("Basal insulin" in med_dose_last_time) and ("Metformin" in med_dose_last_time)) or (("nonpharmacological therapy" in med_dose_last_time) and not("Basal insulin" in med_dose_last_time) and len(med_dose_last_time)==3 and ("Metformin" in med_dose_last_time))):
-        symptoms="NO"
-        if(current_hba1c>9):
-                symptoms=current_symptoms_situation
-        if(symptoms=="YES"):
+        if(symptoms=="YES" and current_hba1c>9):
             proposed_med={} 
             proposed_med["Metformin"]=full_dose
             proposed_med["Basal insulin"]=full_dose
@@ -85,10 +107,7 @@ def recommended_treatment(med_dose_last_time,current_hba1c,target,current_sympto
     elif (("Basal insulin" in med_dose_last_time) and ("Metformin" in med_dose_last_time) and (len(med_dose_last_time)==2)):
         proposed_med={}
         proposed_med["Metformin"]=full_dose
-        symptoms="YES"
-        if(current_hba1c<=9):
-            symptoms=current_symptoms_situation
-        if(symptoms=="NO"):
+        if(symptoms=="NO" and current_hba1c<=9):
             proposed_med["You can choose any item from this list: {}".format(second_or_third_med_level)]=full_dose        
         else:
             proposed_med["Basal insulin"]=full_dose
