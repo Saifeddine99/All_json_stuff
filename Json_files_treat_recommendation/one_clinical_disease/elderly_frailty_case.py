@@ -3,7 +3,7 @@ from Json_files_treat_recommendation.target import target
 def elderly_frailty(hba1c_records,previous_state,med_dose_last_time):
 
     full_dose= "full dose"
-    second_or_third_med_level=['SGLT2i', 'oral GLP1ra', 'Pio', 'SU']
+    second_or_third_med_level=['SGLT2i', 'Pio', 'SU']
 
     next_date="Your next check is after 3 months"
     proposed_med={}
