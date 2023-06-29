@@ -1,9 +1,7 @@
-from Json_files_treat_recommendation.target import target
-
 def obese(hba1c_records,previous_state,current_BMI,med_dose_last_time):
 
     full_dose= "full dose"
-    second_or_third_med_level=['DPP4i', 'SGLT2i', 'Pio', 'SU']
+    second_or_third_med_level=['SGLT2i', 'DPP4i', 'oral GLP1ra', 'Pio', 'SU']
 
     next_date="Your next check is after 3 months"
     proposed_med={}
@@ -18,26 +16,36 @@ def obese(hba1c_records,previous_state,current_BMI,med_dose_last_time):
             if(["Metformin"] == list(med_dose_last_time.keys())):
                 proposed_med["Metformin"]=full_dose
                 if(current_BMI>35):
-                    proposed_med["SGLT2i or GLP1RA; GLP-1RA is preferred here"]=full_dose
+                    proposed_med["GLP-1RA"]=full_dose
                     proposed_med["Consider also bariatric surgery"]="∅"
                 else:
-                    proposed_med["SGLT2i or GLP1RA"]=full_dose
+                    proposed_med["SGLT2i or GLP1RA or dual GIP/GLP1ra"]=full_dose
                 
             elif("Metformin" in med_dose_last_time and "SGLT2i" in med_dose_last_time and len(med_dose_last_time)==2):
                 proposed_med["Metformin"]=full_dose
                 proposed_med["SGLT2i"]=full_dose
                 second_or_third_med_level.remove('SGLT2i')
                 proposed_med["You can choose any item from this list: {}".format(second_or_third_med_level)]=full_dose
-            elif("Metformin" in med_dose_last_time and "GLP1RA" in med_dose_last_time and len(med_dose_last_time)==2):
+            elif("Metformin" in med_dose_last_time and ("GLP1RA" in med_dose_last_time or "dual GIP/GLP1ra" in med_dose_last_time) and len(med_dose_last_time)==2):
                 proposed_med["Metformin"]=full_dose
-                proposed_med["GLP1RA"]=full_dose
+                if("dual GIP/GLP1ra" in med_dose_last_time):
+                    proposed_med["dual GIP/GLP1ra"]=full_dose
+                else:
+                    proposed_med["GLP1RA"]=full_dose
+                
+                second_or_third_med_level.remove('oral GLP1ra')
                 second_or_third_med_level.remove('DPP4i')
                 proposed_med["You can choose any item from this list: {}".format(second_or_third_med_level)]=full_dose
-            elif("Metformin" in med_dose_last_time and not("Basal insulin" in med_dose_last_time) and len(med_dose_last_time)>=3 and (("SGLT2i" in med_dose_last_time and not("GLP1RA" in med_dose_last_time)) or ("GLP1RA" in med_dose_last_time and not("DPP4i" in med_dose_last_time)))):
+            elif("Metformin" in med_dose_last_time and not("Basal insulin" in med_dose_last_time) and len(med_dose_last_time)>=3 and (("SGLT2i" in med_dose_last_time and not("GLP1RA" in med_dose_last_time)) or (("GLP1RA" in med_dose_last_time or "dual GIP/GLP1ra" in med_dose_last_time) and not("DPP4i" in med_dose_last_time)))):
                 drugs=list(med_dose_last_time.keys())
                 drugs.remove("Metformin")
+                
                 if("GLP1RA"in drugs):  
                     drugs.remove("GLP1RA")
+                
+                if("dual GIP/GLP1ra" in drugs):  
+                    drugs.remove("dual GIP/GLP1ra")
+
                 logic_drugs=1
                 for item in drugs:
                     if(item not in second_or_third_med_level):
