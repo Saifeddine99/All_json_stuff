@@ -1,7 +1,7 @@
 def medications(drugs_string):
     med_dict={}
     if(len(drugs_string)>0):
-        drugs_list=drugs_string.split('/')
+        drugs_list=drugs_string.split('/_/')
         for drug in drugs_list:
             drug_name,dose=drug.split(':')
             med_dict[drug_name]=dose

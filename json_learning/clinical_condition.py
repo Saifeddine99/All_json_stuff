@@ -121,9 +121,9 @@ def current_medication(previous_state_):
         st.markdown("""---""")
     drugs_string=""
     for key,value in med_dose_last_time.items():
-        drugs_string+=key+":"+value+"/"
+        drugs_string+=key+":"+value+"/_/"
     if(len(drugs_string)>0):
-        drugs_string=drugs_string[:len(drugs_string)-1]
+        drugs_string=drugs_string[:len(drugs_string)-3]
     return(drugs_string)
 #----------------------------------------------------------------------------------------------------
 def symptomatic():
