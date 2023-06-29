@@ -49,7 +49,7 @@ def patient_EHRs():
     current_BMI,current_eGFR,current_UACR=other_analyses_records()
 
     # Let's ask about the clinical condition :
-    obesity,frailty,heart_failure,established_CVD=clinical_cond()
+    frailty,heart_failure,established_CVD=clinical_cond()
 
     st.write("#")
     st.write("#")
@@ -64,7 +64,6 @@ def patient_EHRs():
         
         json_object["content"][0]["data"]["events"][0]["data"]["items"][0]["value"]["value"]=name
         json_object["content"][0]["data"]["events"][0]["data"]["items"][1]["value"]["value"]=str(age)
-        json_object["content"][0]["data"]["events"][0]["data"]["items"][2]["value"]["symbol"]["value"]=obesity
         json_object["content"][0]["data"]["events"][0]["data"]["items"][3]["value"]["symbol"]["value"]=frailty
         json_object["content"][0]["data"]["events"][0]["data"]["items"][4]["value"]["symbol"]["value"]=heart_failure
         json_object["content"][0]["data"]["events"][0]["data"]["items"][5]["value"]["symbol"]["value"]=established_CVD

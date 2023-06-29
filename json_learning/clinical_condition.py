@@ -8,10 +8,6 @@ full_dose= "full dose"
 # Let's ask about the clinical condition :
 def clinical_cond():
     st.sidebar.title("Clinical condition:")
-    # Obesity: 
-    obesity = st.sidebar.selectbox(
-        "Obesity:",
-        ('NO', 'YES'))
     # frailty:
     frailty = st.sidebar.selectbox(
         "Frailty:",
@@ -24,7 +20,7 @@ def clinical_cond():
     established_CVD = st.sidebar.selectbox(
         "Established CVD:",
         ('NO', 'YES'))
-    return(obesity,frailty,heart_failure,established_CVD)
+    return(frailty,heart_failure,established_CVD)
 
 #-----------------------------------------------------------------------------------------------------------    
 def previous_state():    

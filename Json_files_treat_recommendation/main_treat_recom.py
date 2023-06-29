@@ -21,10 +21,10 @@ def main_get_treat():
     json_file=st.file_uploader("",accept_multiple_files=False,type="json")
     if(json_file is not None):
         patient_data = json.load(json_file)
-        name,age,obesity,frailty,heart_failure,established_CVD,symptoms,current_UACR,current_eGFR,current_BMI,current_drugs,hba1c_records=extract_data(patient_data)
+        name,age,frailty,heart_failure,established_CVD,symptoms,current_UACR,current_eGFR,current_BMI,current_drugs,hba1c_records=extract_data(patient_data)
         
-        elderly='YES' if age>75 else 'NO'
         chronic_kidney_disease='NO' if current_eGFR>=60 and current_UACR<=30 else 'YES'
+        obesity='YES' if current_BMI>=30 else 'NO'
 
         columns_=["name","age","obesity","frailty","chronic_kidney_disease","heart_failure","established_CVD","symptoms","current_UACR","current_eGFR","current_BMI","hba1c_records","current_drugs"]
         values_=[name,age,obesity,frailty,chronic_kidney_disease,heart_failure,established_CVD,symptoms,current_UACR,current_eGFR,current_BMI,hba1c_records,current_drugs]
@@ -45,7 +45,7 @@ def main_get_treat():
             previous_state_="Two previous times or more"
 
         # Let's ask about the clinical condition :
-        condition=clinical_condition(obesity,elderly,frailty,chronic_kidney_disease,heart_failure,established_CVD,current_eGFR,current_UACR)
+        condition=clinical_condition(obesity,frailty,chronic_kidney_disease,heart_failure,established_CVD,current_eGFR,current_UACR)
 
         if(condition[0]=='No other clinical conditions'):
             st.title("Fortunately,You are not suffering from any additional disease!")

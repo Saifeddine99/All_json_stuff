@@ -1,6 +1,6 @@
-def clinical_condition(obesity, elderly, frailty, chronic_kidney_disease, heart_failure, established_CVD,current_eGFR,current_UACR):
+def clinical_condition(obesity, frailty, chronic_kidney_disease, heart_failure, established_CVD,current_eGFR,current_UACR):
 
-    if(obesity==elderly==frailty==chronic_kidney_disease==heart_failure==established_CVD=='NO'):
+    if(obesity==frailty==chronic_kidney_disease==heart_failure==established_CVD=='NO'):
         return(['No other clinical conditions',])
     
     #Before deployment, this part needs to be checked by an expert:
@@ -16,5 +16,3 @@ def clinical_condition(obesity, elderly, frailty, chronic_kidney_disease, heart_
         return(['non_critical_chronic_kidney_disease',])
     elif(obesity=='YES'):
         return(['obesity',])
-    elif(elderly=='YES'):
-        return(['age_or_frailty','elderly',])
