@@ -101,7 +101,7 @@ def current_medication(previous_state_):
         st.subheader("Current treatment")
         last_time_medications = st.multiselect(
                         'Select your current treatment:',
-                        ['nonpharmacological therapy', 'Metformin', 'DPP4i', 'SGLT2i', 'Pio', 'SU','Basal insulin','Repa','GLP1RA'])
+                        ['nonpharmacological therapy', 'Metformin', 'DPP4i', 'SGLT2i', 'Pio', 'SU', 'Basal insulin', 'GLP1RA', 'oral GLP1ra', 'dual GIP/GLP1ra'])
            
         if(len(last_time_medications)==0):
             st.subheader('You selected nothing!')
