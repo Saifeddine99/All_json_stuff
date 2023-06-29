@@ -14,7 +14,7 @@ def obese(hba1c_records,previous_state,current_BMI,med_dose_last_time):
         target_=6.5 ####target(previous_state,med_dose_last_time)
         proposed_med=med_dose_last_time
         current_hba1c=hba1c_records[0]
-        if(current_hba1c>target_):
+        if(current_hba1c>=target_):
             if(["Metformin"] == list(med_dose_last_time.keys())):
                 proposed_med["Metformin"]=full_dose
                 if(current_BMI>35):

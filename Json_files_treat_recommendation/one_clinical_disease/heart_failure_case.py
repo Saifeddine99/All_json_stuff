@@ -2,7 +2,7 @@ from Json_files_treat_recommendation.target import target
 
 def heart_failure_(hba1c_records,previous_state,med_dose_last_time):
     full_dose= "full dose"
-    second_or_third_med_level=['SU', 'DPP4i', 'Pio']
+    second_or_third_med_level=['DPP4i', 'oral GLP1ra', 'Pio', 'SU']
 
     next_date="Your next check is after 3 months"
     proposed_med={}
@@ -15,7 +15,7 @@ def heart_failure_(hba1c_records,previous_state,med_dose_last_time):
         target_=6.5 ####target(previous_state,med_dose_last_time)
         proposed_med=med_dose_last_time
         current_hba1c=hba1c_records[0]
-        if(current_hba1c>target_):
+        if(current_hba1c>=target_):
             if("Metformin" in med_dose_last_time and "SGLT2i" in med_dose_last_time and len(med_dose_last_time)==2):
                 proposed_med["Metformin"]=full_dose
                 proposed_med["SGLT2i"]=full_dose
