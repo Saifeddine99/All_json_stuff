@@ -171,3 +171,32 @@ def other_analyses_records():
     st.markdown("""---""")
 
     return(current_BMI,current_eGFR,current_UACR)
+#-----------------------------------------------------------------------------------------
+def get_CVRFs(current_BMI, current_eGFR,current_UACR):
+    st.subheader("Cardiovascular risk factors:")
+    CVRFs = st.multiselect(
+                    'Select your cardiovascular risk factors:',
+                    ['hypertension','hypercholesterolemia','smoking','albuminuria','family history of early CVD'])
+    
+    if (isinstance(current_BMI, float)):
+        if (current_BMI>=30):
+            CVRFs.append('Obesity')
+
+    if (isinstance(current_eGFR, float)):
+        if (current_eGFR<60):
+            CVRFs.append('eGFR <60 ml/min')
+
+    if (isinstance(current_UACR, float)):
+        if (current_UACR>30):
+            CVRFs.append('UACR > 30 mg/g')
+
+    if(len(CVRFs)==0):
+        st.subheader('You selected nothing!')
+    else:
+        st.subheader('Here are your cardiovascular risk factors:')
+        st.write(CVRFs)
+
+    # I will add a separation line here
+    st.markdown("""---""")
+
+    return(CVRFs)

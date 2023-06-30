@@ -4,7 +4,7 @@ import os
 
 full_path = os.path.join('json_learning', 'MyAnalytics.v2-composition.example.json')
 
-from json_learning.clinical_condition import clinical_cond,previous_state,hba1c_records,other_analyses_records,current_medication,symptomatic
+from json_learning.clinical_condition import clinical_cond,previous_state,hba1c_records,other_analyses_records,current_medication,symptomatic,get_CVRFs
 
 def all_hba1czz_are_floats(hba1c_records_):
     for item in hba1c_records_:
@@ -45,9 +45,9 @@ def patient_EHRs():
 
     symptoms=symptomatic()
     current_drugs=current_medication(previous_state_)
-
+    
     current_BMI,current_eGFR,current_UACR=other_analyses_records()
-
+    CVRFs=get_CVRFs(current_BMI, current_eGFR,current_UACR)
     # Let's ask about the clinical condition :
     frailty,heart_failure,established_CVD=clinical_cond()
 
