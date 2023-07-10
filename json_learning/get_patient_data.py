@@ -1,14 +1,14 @@
+from json_learning.demographics import demongraphic_data
+from json_learning.clinical_data import clinical_data_
 import streamlit as st
 import json
 import os
 
 full_path = os.path.join('json_learning', 'MyAnalytics.v2-composition.example.json')
 
-from json_learning.clinical_condition import clinical_cond,previous_state,hba1c_records,other_analyses_records,current_medication,symptomatic,get_CVRFs
-
-def all_hba1czz_are_floats(hba1c_records_):
+def all_hba1czz_not_null(hba1c_records_):
     for item in hba1c_records_:
-        if(not (isinstance(item, float))):
+        if(item==0):
             return(False)
     return(True)
 
@@ -19,48 +19,22 @@ def treatment_not_empty(current_drugs,previous_state_):
         return(True)
 
 def patient_EHRs():
-    st.markdown("<h1 style='text-align: center; color: #0d325c;'>This web app allows user to create a .json file of his medical data</h1>", unsafe_allow_html = True)
+    st.markdown("<h1 style='text-align: center; color: #17202A;'>This web app allows user to create 2 .json files one for demographics data and another for clinical data</h1>", unsafe_allow_html = True)
+    st.write("#")
 
-    #Getting patient's name:
-    st.subheader("Name:")
-    name=st.text_input("enter your name:")
-
-    #Getting Age value:
-    st.subheader("Age:")
-    age=st.text_input("enter your age:")
-    try:
-        age= int(age)
-    except:
-        st.write("Please enter a right value, Age must be a positive number")
-
-    # This function allows us to know whether it's patient's first time to get treatment or already getting
-    previous_state_ = previous_state()
-
-    hba1c_records_=hba1c_records(previous_state_)
-
-    hba1c_string=""
-    for record in hba1c_records_:
-        hba1c_string+=str(record)+"/"
-    hba1c_string=hba1c_string[:len(hba1c_string)-1]
-
-    symptoms=symptomatic()
-    current_drugs=current_medication(previous_state_)
-
-    current_BMI,current_eGFR,current_UACR=other_analyses_records()
-    CVRFs=get_CVRFs(current_BMI, current_eGFR,current_UACR)
-    # Let's ask about the clinical condition :
-    frailty,heart_failure,established_CVD,hepatic_steatosis,strokes=clinical_cond()
-
+    name,surname,address,postal_code,birthday,dni,correct_dni=demongraphic_data()
+    frailty,heart_failure,established_CVD,hepatic_steatosis,strokes,CVRFs,current_BMI,current_eGFR,current_UACR,current_drugs,symptoms,previous_state_,hba1c_records_,hba1c_string=clinical_data_()
+    
+    age=12
     st.write("#")
     st.write("#")
 
-    if(isinstance(age, int) and treatment_not_empty(current_drugs,previous_state_) and all_hba1czz_are_floats(hba1c_records_)==True and isinstance(current_eGFR, float) and isinstance(current_UACR, float) and isinstance(current_BMI, float) and len(name)>0):
+    if( len(name)>0 and postal_code>0 and len(address)>0 and len(surname)>0 and correct_dni and treatment_not_empty(current_drugs,previous_state_) and all_hba1czz_not_null(hba1c_records_) and (current_eGFR>0) and (current_UACR>0) and (current_BMI>0) ):
+        
         # Opening JSON file
         with open(full_path, 'r') as openfile:
             # Reading from json file
             json_object = json.load(openfile)
-
-        st.subheader("Click on the 'Download' button below to create a '.json' file containing all medical informations about this patient !")
         
         json_object["content"][0]["data"]["events"][0]["data"]["items"][0]["value"]["value"]=name
         json_object["content"][0]["data"]["events"][0]["data"]["items"][1]["value"]["value"]=str(age)
@@ -76,15 +50,18 @@ def patient_EHRs():
 
         # Serializing json
         json_object = json.dumps(json_object, indent=4)
-        col1, col2, col3 = st.columns([4,2,3])
-        with col2:
-            center_button = st.download_button('Download the ".JSON" file', json_object, file_name=name+str(age)+".json")
-        
-        if (center_button):
-            st.write("#")
-            st.write('''
-            ## File saved well ✅
-            ''')
-
+        col1, col2, col3 = st.columns([2,0.5,2])
+        with col1:
+            st.subheader("Clinical data related to this patient:")
+            download_clinical = st.download_button('Download clinical data', json_object, file_name=name+surname+".json")
+            if (download_clinical):
+                st.write("#")
+                st.success("File saved well ✅")
+        with col3:
+            st.subheader("Dimographic data related to this patient:")
+            download_demographics = st.download_button('Download dimographic data', json_object, file_name=name+surname+".json")
+            if (download_demographics):
+                st.write("#")
+                st.success("File saved well ✅")
     else:
-        st.subheader("One of the values you entered is invalid, Please check them carefully !")
+        st.error("One of the values you entered is invalid, Please check them carefully!")

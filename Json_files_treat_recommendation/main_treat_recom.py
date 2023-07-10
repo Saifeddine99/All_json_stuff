@@ -74,7 +74,7 @@ def main_get_treat():
         with col2:
             center_button = st.button('Done')
         if (center_button):
-            new_med(name,proposed_med,next_date)
+            new_med(name,age,proposed_med,next_date)
         else:
             col01, col02, col03 = st.columns([1,4,1])
             with col02:

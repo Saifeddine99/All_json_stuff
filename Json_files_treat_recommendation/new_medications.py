@@ -1,7 +1,8 @@
 import streamlit as st 
 import pandas as pd
+import json
 
-def new_med(name,proposed_med,next_date):
+def new_med(name,age,proposed_med,next_date):
     # I will add a separation line here
     st.markdown("""---""")      
     #Here we show the proposed medications:           
@@ -20,3 +21,13 @@ def new_med(name,proposed_med,next_date):
     #Reminder for user to Check every 3-6 months
     st.subheader("Next check:")
     st.text(next_date)
+
+    st.write("#")
+    st.subheader("If you are satisfied with the recommended treatment, Click on the 'Download' button below to save data in the OpenEHR standards form:")
+    st.write("#")
+    
+    json_object={}
+    json_object = json.dumps(json_object, indent=4)
+    col1, col2, col3 = st.columns([4,2,3])
+    with col2:
+        download_button = st.download_button('Download', json_object, file_name="recommended_treatment_for_"+name+"_"+str(age)+".json")
