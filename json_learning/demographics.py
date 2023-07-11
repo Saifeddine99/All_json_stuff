@@ -26,6 +26,8 @@ def demongraphic_data():
         st.subheader("Birthday date:")
         birthday = st.date_input(
             "When\'s your birthday",
+            min_value=datetime.date(1923,1,1),
+            max_value=datetime.date.today()
             )
         st.write('Your birthday is:', birthday)
 
@@ -39,9 +41,14 @@ def demongraphic_data():
 
         #Getting patient's postal_code:
         st.subheader("Postal Code:")
-        postal_code=st.number_input("enter your postal code:",min_value=0,step=1)
-        if (postal_code==0):
+        postal_code=st.text_input("enter your postal code:")
+        correct_postal_code=True
+        if (len(postal_code)==0):
             st.warning("You entered nothing !")
+            correct_postal_code=False
+        elif (postal_code.isnumeric() is False or len(postal_code)!=5):
+            st.error("Invalid postal code !")
+            correct_postal_code=False
         st.write("#")
 
         #Getting patient's DNI:
@@ -50,11 +57,11 @@ def demongraphic_data():
         if (len(dni)==0):
             st.warning("You entered nothing !")
         elif (correct_dni(dni) is False):
-            st.error("Incorrect DNI !")
+            st.error("Invalid DNI !")
 
         st.write("#")
 
-    return(name,surname,address,postal_code,birthday,dni,correct_dni(dni))
+    return(name,surname,address,postal_code,birthday,dni,correct_dni(dni),correct_postal_code)
 
 def correct_dni(dni):
     try:

@@ -1,0 +1,1516 @@
+{
+  "_type" : "COMPOSITION",
+  "name" : {
+    "_type" : "DV_TEXT",
+    "value" : "MedicationRecommendation.v0"
+  },
+  "archetype_details" : {
+    "archetype_id" : {
+      "value" : "openEHR-EHR-COMPOSITION.medication_list.v1"
+    },
+    "template_id" : {
+      "value" : "MedicationRecommendation.v0"
+    },
+    "rm_version" : "1.0.4"
+  },
+  "language" : {
+    "_type" : "CODE_PHRASE",
+    "terminology_id" : {
+      "_type" : "TERMINOLOGY_ID",
+      "value" : "ISO_639-1"
+    },
+    "code_string" : "en"
+  },
+  "territory" : {
+    "_type" : "CODE_PHRASE",
+    "terminology_id" : {
+      "_type" : "TERMINOLOGY_ID",
+      "value" : "ISO_3166-1"
+    },
+    "code_string" : "DE"
+  },
+  "category" : {
+    "_type" : "DV_CODED_TEXT",
+    "value" : "event",
+    "defining_code" : {
+      "_type" : "CODE_PHRASE",
+      "terminology_id" : {
+        "_type" : "TERMINOLOGY_ID",
+        "value" : "openehr"
+      },
+      "code_string" : "433"
+    }
+  },
+  "composer" : {
+    "_type" : "PARTY_IDENTIFIED",
+    "name" : "Max Mustermann"
+  },
+  "context" : {
+    "_type" : "EVENT_CONTEXT",
+    "start_time" : {
+      "_type" : "DV_DATE_TIME",
+      "value" : "2022-02-03T04:05:06.000"
+    },
+    "end_time" : {
+      "_type" : "DV_DATE_TIME",
+      "value" : "2022-02-03T04:05:06.000"
+    },
+    "setting" : {
+      "_type" : "DV_CODED_TEXT",
+      "value" : "home",
+      "defining_code" : {
+        "_type" : "CODE_PHRASE",
+        "terminology_id" : {
+          "_type" : "TERMINOLOGY_ID",
+          "value" : "openehr"
+        },
+        "code_string" : "225"
+      }
+    },
+    "health_care_facility" : {
+      "_type" : "PARTY_IDENTIFIED",
+      "name" : "DOE, John"
+    }
+  },
+  "content" : [ {
+    "_type" : "OBSERVATION",
+    "name" : {
+      "_type" : "DV_TEXT",
+      "value" : "Medication statement"
+    },
+    "archetype_details" : {
+      "archetype_id" : {
+        "value" : "openEHR-EHR-OBSERVATION.medication_statement.v0"
+      },
+      "template_id" : {
+        "value" : "MedicationRecommendation.v0"
+      },
+      "rm_version" : "1.0.4"
+    },
+    "language" : {
+      "_type" : "CODE_PHRASE",
+      "terminology_id" : {
+        "_type" : "TERMINOLOGY_ID",
+        "value" : "ISO_639-1"
+      },
+      "code_string" : "en"
+    },
+    "encoding" : {
+      "_type" : "CODE_PHRASE",
+      "terminology_id" : {
+        "_type" : "TERMINOLOGY_ID",
+        "value" : "IANA_character-sets"
+      },
+      "code_string" : "ISO-10646-UTF-1"
+    },
+    "workflow_id" : {
+      "_type" : "OBJECT_REF",
+      "namespace" : "unknown",
+      "type" : "ANY",
+      "id" : {
+        "_type" : "GENERIC_ID",
+        "value" : "22e0882f-baa6-3bdd-87ae-bc4d23e89e61",
+        "scheme" : "scheme"
+      }
+    },
+    "subject" : {
+      "_type" : "PARTY_SELF"
+    },
+    "provider" : {
+      "_type" : "PARTY_SELF"
+    },
+    "guideline_id" : {
+      "_type" : "OBJECT_REF",
+      "namespace" : "unknown",
+      "type" : "ANY",
+      "id" : {
+        "_type" : "GENERIC_ID",
+        "value" : "92a34bd7-14eb-3440-9210-b345b9264693",
+        "scheme" : "scheme"
+      }
+    },
+    "data" : {
+      "name" : {
+        "_type" : "DV_TEXT",
+        "value" : "History"
+      },
+      "origin" : {
+        "_type" : "DV_DATE_TIME",
+        "value" : "2022-02-03T04:05:06.000"
+      },
+      "period" : {
+        "_type" : "DV_DURATION",
+        "value" : "PT0S"
+      },
+      "duration" : {
+        "_type" : "DV_DURATION",
+        "value" : "PT0S"
+      },
+      "events" : [ {
+        "_type" : "POINT_EVENT",
+        "name" : {
+          "_type" : "DV_TEXT",
+          "value" : "Any event"
+        },
+        "time" : {
+          "_type" : "DV_DATE_TIME",
+          "value" : "2022-02-03T04:05:06.000"
+        },
+        "data" : {
+          "_type" : "ITEM_TREE",
+          "name" : {
+            "_type" : "DV_TEXT",
+            "value" : "Tree"
+          },
+          "items" : [ {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Medication item name"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0006"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status"
+            },
+            "value" : {
+              "_type" : "DV_CODED_TEXT",
+              "value" : "Planned",
+              "defining_code" : {
+                "_type" : "CODE_PHRASE",
+                "terminology_id" : {
+                  "_type" : "TERMINOLOGY_ID",
+                  "value" : "local"
+                },
+                "code_string" : "at0009"
+              }
+            },
+            "archetype_node_id" : "at0008"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status reason"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0018"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status start time"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0019"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status duration"
+            },
+            "value" : {
+              "_type" : "DV_DURATION",
+              "value" : "PT0S"
+            },
+            "archetype_node_id" : "at0020"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status end time"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0021"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Therapeutic intent"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0031"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Description"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0032"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Clinical indication"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0023"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Dose and timing"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0033"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Route"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0030"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "First prescribed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0024"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last prescribed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0025"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Duration of use"
+            },
+            "value" : {
+              "_type" : "DV_DURATION",
+              "value" : "PT0S"
+            },
+            "archetype_node_id" : "at0034"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last administered"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0026"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last reviewed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0027"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Discontinued"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0028"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Comment"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0029"
+          } ],
+          "archetype_node_id" : "at0003"
+        },
+        "archetype_node_id" : "at0002"
+      },
+      {
+        "_type" : "POINT_EVENT",
+        "name" : {
+          "_type" : "DV_TEXT",
+          "value" : "Any event"
+        },
+        "time" : {
+          "_type" : "DV_DATE_TIME",
+          "value" : "2022-02-03T04:05:06.000"
+        },
+        "data" : {
+          "_type" : "ITEM_TREE",
+          "name" : {
+            "_type" : "DV_TEXT",
+            "value" : "Tree"
+          },
+          "items" : [ {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Medication item name"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0006"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status"
+            },
+            "value" : {
+              "_type" : "DV_CODED_TEXT",
+              "value" : "Planned",
+              "defining_code" : {
+                "_type" : "CODE_PHRASE",
+                "terminology_id" : {
+                  "_type" : "TERMINOLOGY_ID",
+                  "value" : "local"
+                },
+                "code_string" : "at0009"
+              }
+            },
+            "archetype_node_id" : "at0008"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status reason"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0018"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status start time"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0019"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status duration"
+            },
+            "value" : {
+              "_type" : "DV_DURATION",
+              "value" : "PT0S"
+            },
+            "archetype_node_id" : "at0020"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status end time"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0021"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Therapeutic intent"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0031"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Description"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0032"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Clinical indication"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0023"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Dose and timing"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0033"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Route"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0030"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "First prescribed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0024"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last prescribed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0025"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Duration of use"
+            },
+            "value" : {
+              "_type" : "DV_DURATION",
+              "value" : "PT0S"
+            },
+            "archetype_node_id" : "at0034"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last administered"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0026"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last reviewed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0027"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Discontinued"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0028"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Comment"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0029"
+          } ],
+          "archetype_node_id" : "at0003"
+        },
+        "archetype_node_id" : "at0002"
+      },
+      {
+        "_type" : "POINT_EVENT",
+        "name" : {
+          "_type" : "DV_TEXT",
+          "value" : "Any event"
+        },
+        "time" : {
+          "_type" : "DV_DATE_TIME",
+          "value" : "2022-02-03T04:05:06.000"
+        },
+        "data" : {
+          "_type" : "ITEM_TREE",
+          "name" : {
+            "_type" : "DV_TEXT",
+            "value" : "Tree"
+          },
+          "items" : [ {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Medication item name"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0006"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status"
+            },
+            "value" : {
+              "_type" : "DV_CODED_TEXT",
+              "value" : "Planned",
+              "defining_code" : {
+                "_type" : "CODE_PHRASE",
+                "terminology_id" : {
+                  "_type" : "TERMINOLOGY_ID",
+                  "value" : "local"
+                },
+                "code_string" : "at0009"
+              }
+            },
+            "archetype_node_id" : "at0008"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status reason"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0018"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status start time"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0019"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status duration"
+            },
+            "value" : {
+              "_type" : "DV_DURATION",
+              "value" : "PT0S"
+            },
+            "archetype_node_id" : "at0020"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status end time"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0021"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Therapeutic intent"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0031"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Description"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0032"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Clinical indication"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0023"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Dose and timing"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0033"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Route"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0030"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "First prescribed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0024"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last prescribed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0025"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Duration of use"
+            },
+            "value" : {
+              "_type" : "DV_DURATION",
+              "value" : "PT0S"
+            },
+            "archetype_node_id" : "at0034"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last administered"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0026"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last reviewed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0027"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Discontinued"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0028"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Comment"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0029"
+          } ],
+          "archetype_node_id" : "at0003"
+        },
+        "archetype_node_id" : "at0002"
+      },
+      {
+        "_type" : "POINT_EVENT",
+        "name" : {
+          "_type" : "DV_TEXT",
+          "value" : "Any event"
+        },
+        "time" : {
+          "_type" : "DV_DATE_TIME",
+          "value" : "2022-02-03T04:05:06.000"
+        },
+        "data" : {
+          "_type" : "ITEM_TREE",
+          "name" : {
+            "_type" : "DV_TEXT",
+            "value" : "Tree"
+          },
+          "items" : [ {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Medication item name"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0006"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status"
+            },
+            "value" : {
+              "_type" : "DV_CODED_TEXT",
+              "value" : "Planned",
+              "defining_code" : {
+                "_type" : "CODE_PHRASE",
+                "terminology_id" : {
+                  "_type" : "TERMINOLOGY_ID",
+                  "value" : "local"
+                },
+                "code_string" : "at0009"
+              }
+            },
+            "archetype_node_id" : "at0008"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status reason"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0018"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status start time"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0019"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status duration"
+            },
+            "value" : {
+              "_type" : "DV_DURATION",
+              "value" : "PT0S"
+            },
+            "archetype_node_id" : "at0020"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status end time"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0021"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Therapeutic intent"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0031"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Description"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0032"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Clinical indication"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0023"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Dose and timing"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0033"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Route"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0030"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "First prescribed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0024"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last prescribed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0025"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Duration of use"
+            },
+            "value" : {
+              "_type" : "DV_DURATION",
+              "value" : "PT0S"
+            },
+            "archetype_node_id" : "at0034"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last administered"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0026"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last reviewed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0027"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Discontinued"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0028"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Comment"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0029"
+          } ],
+          "archetype_node_id" : "at0003"
+        },
+        "archetype_node_id" : "at0002"
+      },
+      {
+        "_type" : "POINT_EVENT",
+        "name" : {
+          "_type" : "DV_TEXT",
+          "value" : "Any event"
+        },
+        "time" : {
+          "_type" : "DV_DATE_TIME",
+          "value" : "2022-02-03T04:05:06.000"
+        },
+        "data" : {
+          "_type" : "ITEM_TREE",
+          "name" : {
+            "_type" : "DV_TEXT",
+            "value" : "Tree"
+          },
+          "items" : [ {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Medication item name"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0006"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status"
+            },
+            "value" : {
+              "_type" : "DV_CODED_TEXT",
+              "value" : "Planned",
+              "defining_code" : {
+                "_type" : "CODE_PHRASE",
+                "terminology_id" : {
+                  "_type" : "TERMINOLOGY_ID",
+                  "value" : "local"
+                },
+                "code_string" : "at0009"
+              }
+            },
+            "archetype_node_id" : "at0008"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status reason"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0018"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status start time"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0019"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status duration"
+            },
+            "value" : {
+              "_type" : "DV_DURATION",
+              "value" : "PT0S"
+            },
+            "archetype_node_id" : "at0020"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status end time"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0021"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Therapeutic intent"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0031"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Description"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0032"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Clinical indication"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0023"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Dose and timing"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0033"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Route"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0030"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "First prescribed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0024"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last prescribed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0025"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Duration of use"
+            },
+            "value" : {
+              "_type" : "DV_DURATION",
+              "value" : "PT0S"
+            },
+            "archetype_node_id" : "at0034"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last administered"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0026"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last reviewed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0027"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Discontinued"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0028"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Comment"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0029"
+          } ],
+          "archetype_node_id" : "at0003"
+        },
+        "archetype_node_id" : "at0002"
+      },
+      {
+        "_type" : "POINT_EVENT",
+        "name" : {
+          "_type" : "DV_TEXT",
+          "value" : "Any event"
+        },
+        "time" : {
+          "_type" : "DV_DATE_TIME",
+          "value" : "2022-02-03T04:05:06.000"
+        },
+        "data" : {
+          "_type" : "ITEM_TREE",
+          "name" : {
+            "_type" : "DV_TEXT",
+            "value" : "Tree"
+          },
+          "items" : [ {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Medication item name"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0006"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status"
+            },
+            "value" : {
+              "_type" : "DV_CODED_TEXT",
+              "value" : "Planned",
+              "defining_code" : {
+                "_type" : "CODE_PHRASE",
+                "terminology_id" : {
+                  "_type" : "TERMINOLOGY_ID",
+                  "value" : "local"
+                },
+                "code_string" : "at0009"
+              }
+            },
+            "archetype_node_id" : "at0008"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status reason"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0018"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status start time"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0019"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status duration"
+            },
+            "value" : {
+              "_type" : "DV_DURATION",
+              "value" : "PT0S"
+            },
+            "archetype_node_id" : "at0020"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Status end time"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0021"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Therapeutic intent"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0031"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Description"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0032"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Clinical indication"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0023"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Dose and timing"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0033"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Route"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0030"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "First prescribed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0024"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last prescribed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0025"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Duration of use"
+            },
+            "value" : {
+              "_type" : "DV_DURATION",
+              "value" : "PT0S"
+            },
+            "archetype_node_id" : "at0034"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last administered"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0026"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Last reviewed"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0027"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Discontinued"
+            },
+            "value" : {
+              "_type" : "DV_DATE_TIME",
+              "value" : "2022-02-03T04:05:06.000"
+            },
+            "archetype_node_id" : "at0028"
+          }, {
+            "_type" : "ELEMENT",
+            "name" : {
+              "_type" : "DV_TEXT",
+              "value" : "Comment"
+            },
+            "value" : {
+              "_type" : "DV_TEXT",
+              "value" : "Lorem ipsum"
+            },
+            "archetype_node_id" : "at0029"
+          } ],
+          "archetype_node_id" : "at0003"
+        },
+        "archetype_node_id" : "at0002"
+      } ],
+      "archetype_node_id" : "at0001"
+    },
+    "archetype_node_id" : "openEHR-EHR-OBSERVATION.medication_statement.v0"
+  } ],
+  "archetype_node_id" : "openEHR-EHR-COMPOSITION.medication_list.v1"
+}
