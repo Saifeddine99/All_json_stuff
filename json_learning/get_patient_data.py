@@ -68,13 +68,13 @@ def patient_EHRs():
         col1, col2, col3 = st.columns([2,0.5,2])
         with col1:
             st.subheader("Clinical data related to this patient:")
-            download_clinical = st.download_button('Download clinical data', json_object, file_name=name+surname+".json",on_click=callback0)
+            download_clinical = st.download_button('Download clinical data', json_object, file_name="clinical data of "+name+surname+".json",on_click=callback0)
             if (download_clinical or st.session_state.clinical_data_button):
                 st.write("#")
                 st.success("File saved well ✅")
         with col3:
             st.subheader("Dimographic data related to this patient:")
-            download_demographics = st.download_button('Download dimographic data', json_object, file_name=name+surname+".json",on_click=callback1)
+            download_demographics = st.download_button('Download demographic data', json_object, file_name="demographic data of "+name+surname+".json",on_click=callback1)
             if (download_demographics or st.session_state.demographic_data_button):
                 st.write("#")
                 st.success("File saved well ✅")
