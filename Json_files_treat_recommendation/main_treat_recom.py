@@ -21,13 +21,13 @@ def main_get_treat():
     json_file=st.file_uploader("",accept_multiple_files=False,type="json")
     if(json_file is not None):
         patient_data = json.load(json_file)
-        name,age,frailty,heart_failure,established_CVD,symptoms,current_UACR,current_eGFR,current_BMI,current_drugs,hba1c_records=extract_data(patient_data)
+        name,frailty,heart_failure,established_CVD,symptoms,current_UACR,current_eGFR,current_BMI,current_drugs,hba1c_records=extract_data(patient_data)
         
         chronic_kidney_disease='NO' if current_eGFR>=60 and current_UACR<=30 else 'YES'
         obesity='YES' if current_BMI>=30 else 'NO'
 
-        columns_=["name","age","obesity","frailty","chronic_kidney_disease","heart_failure","established_CVD","symptoms","current_UACR","current_eGFR","current_BMI","hba1c_records","current_drugs"]
-        values_=[name,age,obesity,frailty,chronic_kidney_disease,heart_failure,established_CVD,symptoms,current_UACR,current_eGFR,current_BMI,hba1c_records,current_drugs]
+        columns_=["name","obesity","frailty","chronic_kidney_disease","heart_failure","established_CVD","symptoms","current_UACR","current_eGFR","current_BMI","hba1c_records","current_drugs"]
+        values_=[name,obesity,frailty,chronic_kidney_disease,heart_failure,established_CVD,symptoms,current_UACR,current_eGFR,current_BMI,hba1c_records,current_drugs]
         types=[]
         for item in values_:
             types.append(type(item))
@@ -74,7 +74,7 @@ def main_get_treat():
         with col2:
             center_button = st.button('Done')
         if (center_button):
-            new_med(name,age,proposed_med,next_date)
+            new_med(name,proposed_med,next_date)
         else:
             col01, col02, col03 = st.columns([1,4,1])
             with col02:

@@ -4,7 +4,7 @@ import pandas as pd
 import os
 import json
 
-def new_med(name,age,proposed_med,next_date):
+def new_med(name,proposed_med,next_date):
 
     # I will add a separation line here
     st.markdown("""---""")      
@@ -67,4 +67,4 @@ def new_med(name,age,proposed_med,next_date):
 
     col1, col2, col3 = st.columns([4,2,3])
     with col2:
-        download_button = st.download_button('Download', json_object, file_name="recommended_treatment_for_"+name+"_"+str(age)+".json")
+        download_button = st.download_button('Download', json_object, file_name="recommended_treatment_for_"+name+".json")

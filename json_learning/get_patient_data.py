@@ -42,7 +42,6 @@ def patient_EHRs():
     st.write("#")
     frailty,heart_failure,established_CVD,hepatic_steatosis,strokes,CVRFs,current_BMI,current_eGFR,current_UACR,current_drugs,symptoms,previous_state_,hba1c_records_,hba1c_string=clinical_data_()
     
-    age=12
     st.write("#")
     st.write("#")
 
@@ -54,7 +53,6 @@ def patient_EHRs():
             json_object = json.load(openfile)
         
         json_object["content"][0]["data"]["events"][0]["data"]["items"][0]["value"]["value"]=name
-        json_object["content"][0]["data"]["events"][0]["data"]["items"][1]["value"]["value"]=str(age)
         json_object["content"][0]["data"]["events"][0]["data"]["items"][3]["value"]["symbol"]["value"]=frailty
         json_object["content"][0]["data"]["events"][0]["data"]["items"][4]["value"]["symbol"]["value"]=heart_failure
         json_object["content"][0]["data"]["events"][0]["data"]["items"][5]["value"]["symbol"]["value"]=established_CVD
