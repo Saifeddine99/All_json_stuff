@@ -3,7 +3,32 @@ from streamlit_option_menu import option_menu
 from json_learning.get_patient_data import patient_EHRs
 from Json_files_treat_recommendation.main_treat_recom import main_get_treat
 
+from streamlit_cookies_manager import EncryptedCookieManager
+
 st.set_page_config(page_title="Json stuff", page_icon=":hospital:", layout="centered")
+
+# This should be on top of your script
+cookies = EncryptedCookieManager(
+    # This prefix will get added to all your cookie names.
+    # This way you can run your app on Streamlit Cloud without cookie name clashes with other apps.
+    prefix="",
+    # You should really setup a long COOKIES_PASSWORD secret if you're running on Streamlit Cloud.
+    password="",
+)
+if not cookies.ready():
+    # Wait for the component to load and send us current cookies.
+    st.stop()
+
+if("user" not in cookies):
+    st.write("here user")
+    nav_script = """
+    <meta http-equiv="refresh" content="0; url='%s'">
+    """ % ("https://rdi.behit.net/redgdps/login")
+    st.write(nav_script, unsafe_allow_html=True)
+
+
+
+
 
 selected=option_menu(
     menu_title="Main Menu",
