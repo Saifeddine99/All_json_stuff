@@ -1,6 +1,8 @@
 from json_learning.demographics import demongraphic_data
 from json_learning.clinical_data import clinical_data_
+
 import streamlit as st
+
 import json
 import os
 
@@ -71,12 +73,12 @@ def patient_EHRs():
             download_clinical = st.download_button('Download clinical data', json_object, file_name="clinical data of "+name+surname+".json",on_click=callback0)
             if (download_clinical or st.session_state.clinical_data_button):
                 st.write("#")
-                st.success("File saved well ✅")
+                st.success(": File saved well " ,icon="✅")
         with col3:
             st.subheader("Dimographic data related to this patient:")
             download_demographics = st.download_button('Download demographic data', json_object, file_name="demographic data of "+name+surname+".json",on_click=callback1)
             if (download_demographics or st.session_state.demographic_data_button):
                 st.write("#")
-                st.success("File saved well ✅")
+                st.success(": File saved well" ,icon="✅")
     else:
-        st.error("One of the values you entered is invalid, Please check them carefully!")
+        st.error(": One of the values you entered is invalid, Please check them carefully!",icon="⛔")

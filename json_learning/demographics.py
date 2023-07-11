@@ -12,14 +12,14 @@ def demongraphic_data():
         name=st.text_input("enter your name:")
         
         if (len(name)==0):
-            st.warning("You entered nothing !")
+            st.warning(": You entered nothing !" ,icon="⚠️")
         st.write("#")
 
         #Getting patient's address:
         st.subheader("Address:")
         address=st.text_input("enter your address:")
         if (len(address)==0):
-            st.warning("You entered nothing !")
+            st.warning(": You entered nothing !" ,icon="⚠️")
         st.write("#")
 
         #Getting patient's birth day:
@@ -36,7 +36,7 @@ def demongraphic_data():
         st.subheader("Surame:")
         surname=st.text_input("enter your surname:")
         if (len(surname)==0):
-            st.warning("You entered nothing !")
+            st.warning(": You entered nothing !" ,icon="⚠️") 
         st.write("#")
 
         #Getting patient's postal_code:
@@ -44,10 +44,10 @@ def demongraphic_data():
         postal_code=st.text_input("enter your postal code:")
         correct_postal_code=True
         if (len(postal_code)==0):
-            st.warning("You entered nothing !")
+            st.warning(": You entered nothing !" ,icon="⚠️")
             correct_postal_code=False
         elif (postal_code.isnumeric() is False or len(postal_code)!=5):
-            st.error("Invalid postal code !")
+            st.error("Postal code must be composed of 5 numbers" ,icon="❌")
             correct_postal_code=False
         st.write("#")
 
@@ -55,9 +55,9 @@ def demongraphic_data():
         st.subheader("DNI:")
         dni=st.text_input("enter your national identifier:")
         if (len(dni)==0):
-            st.warning("You entered nothing !")
+            st.warning(": You entered nothing !" ,icon="⚠️")
         elif (correct_dni(dni) is False):
-            st.error("Invalid DNI !")
+            st.error(": DNI must be composed of 8 numbers and a capital letter at the end" ,icon="❌")
 
         st.write("#")
 

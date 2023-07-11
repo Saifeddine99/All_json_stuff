@@ -54,7 +54,7 @@ def hba1c_records(previous_state_):
         st.subheader("HbA1c(%):")
         current_HbA1c=st.number_input("current HbA1c value:",min_value=0.00,step=0.01)
         if (current_HbA1c==0):
-            st.warning("You entered nothing!")
+            st.warning(": You entered nothing!" ,icon="⚠️")
         st.write("#")
         hba1c_records_.append(current_HbA1c)
     elif (previous_state_=='Second time'):
@@ -63,14 +63,14 @@ def hba1c_records(previous_state_):
             st.subheader("Current HbA1c(%):")
             current_HbA1c=st.number_input("current HbA1c value:",min_value=0.00,step=0.01)
             if (current_HbA1c==0):
-                st.warning("You entered nothing!")
+                st.warning(": You entered nothing!" ,icon="⚠️")
 
             hba1c_records_.append(current_HbA1c)
         with col_2:
             st.subheader("Previous HbA1c(%):")
             previous_HbA1c=st.number_input("previous HbA1c value:",min_value=0.00,step=0.01)
             if (previous_HbA1c==0):
-                st.warning("You entered nothing!")
+                st.warning(": You entered nothing!" ,icon="⚠️")
 
             hba1c_records_.append(previous_HbA1c)
     else:
@@ -79,7 +79,7 @@ def hba1c_records(previous_state_):
             st.subheader("Current HbA1c(%):")
             current_HbA1c=st.number_input("current HbA1c value:",min_value=0.00,step=0.01)
             if (current_HbA1c==0):
-                st.warning("You entered nothing!")
+                st.warning(": You entered nothing!" ,icon="⚠️")
 
             hba1c_records_.append(current_HbA1c)
 
@@ -87,7 +87,7 @@ def hba1c_records(previous_state_):
             st.subheader("Previous HbA1c(%):")
             previous_HbA1c=st.number_input("previous HbA1c value:",min_value=0.00,step=0.01)
             if (previous_HbA1c==0):
-                st.warning("You entered nothing!")
+                st.warning(": You entered nothing!" ,icon="⚠️")
 
             hba1c_records_.append(previous_HbA1c)
             
@@ -95,7 +95,7 @@ def hba1c_records(previous_state_):
             st.subheader("HbA1c before previous one:")
             before_previous_HbA1c=st.number_input("before previous HbA1c value:",min_value=0.00,step=0.01)
             if (before_previous_HbA1c==0):
-                st.warning("You entered nothing!")
+                st.warning(": You entered nothing!" ,icon="⚠️")
 
             hba1c_records_.append(before_previous_HbA1c)
     st.markdown("""---""")
@@ -152,20 +152,20 @@ def other_analyses_records():
         st.subheader("eGFR(ml/min):")
         current_eGFR=st.number_input("enter your current eGFR: estimated glomerular filtration rate (ml/min):",min_value=0.00,step=0.01)
         if (current_eGFR==0):
-            st.warning("You entered nothing!")
+            st.warning(": You entered nothing!" ,icon="⚠️")
     with col002:
         #Getting UACR value:
         st.subheader("UACR(mg/g):")
         current_UACR=st.number_input("enter your current UACR: urine albumin/creatinine ratio (mg/g):",min_value=0.00,step=0.01)
         if (current_UACR==0):
-            st.warning("You entered nothing!")
+            st.warning(": You entered nothing!" ,icon="⚠️")
 
     with col003:
         #Getting BMI value:
         st.subheader("BMI(Kg/m²):")
         current_BMI=st.number_input("enter your current BMI value (Kg/m²):",min_value=0.00,step=0.01)
         if (current_BMI==0):
-            st.warning("You entered nothing!")
+            st.warning(": You entered nothing!" ,icon="⚠️")
 
     # I will add a separation line here
     st.markdown("""---""")
