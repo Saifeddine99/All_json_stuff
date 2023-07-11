@@ -82,4 +82,4 @@ def main_get_treat():
     else:
         st.write('#')
         st.write('#')
-        st.markdown("<h1 style='text-align: center; color: #0d325c;'>Waiting for the .json file !</h1>", unsafe_allow_html = True)
+        st.warning(": Waiting for the '.json' file",icon="⚠️")
