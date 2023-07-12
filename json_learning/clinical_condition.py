@@ -126,12 +126,8 @@ def current_medication(previous_state_):
             st.dataframe(df,use_container_width=True)
         # I will add a separation line here
         st.markdown("""---""")
-    drugs_string=""
-    for key,value in med_dose_last_time.items():
-        drugs_string+=key+":"+value+"/_/"
-    if(len(drugs_string)>0):
-        drugs_string=drugs_string[:len(drugs_string)-3]
-    return(drugs_string)
+
+    return(med_dose_last_time)
 #----------------------------------------------------------------------------------------------------
 def symptomatic():
     st.subheader("Symptoms :")

@@ -16,7 +16,6 @@ def hba1c_records_list(hba1c):
 
 def extract_data(json_object): 
 
-    name=json_object["content"][0]["data"]["events"][0]["data"]["items"][0]["value"]["value"]
     frailty=json_object["content"][0]["data"]["events"][0]["data"]["items"][3]["value"]["symbol"]["value"]
     heart_failure=json_object["content"][0]["data"]["events"][0]["data"]["items"][4]["value"]["symbol"]["value"]
     established_cvd=json_object["content"][0]["data"]["events"][0]["data"]["items"][5]["value"]["symbol"]["value"]
@@ -28,4 +27,4 @@ def extract_data(json_object):
 
     medication_dict=medications(json_object["content"][3]["data"]["events"][0]["data"]["items"][0]["value"]["value"])
 
-    return(name,frailty,heart_failure,established_cvd,symptoms,current_UACR,current_eGFR,current_BMI,medication_dict,hba1c_records)
+    return(frailty,heart_failure,established_cvd,symptoms,current_UACR,current_eGFR,current_BMI,medication_dict,hba1c_records)

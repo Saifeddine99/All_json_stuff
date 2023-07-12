@@ -27,19 +27,19 @@ def main_get_treat():
     json_file=st.file_uploader("",accept_multiple_files=False,type="json")
     if(json_file is not None):
         patient_data = json.load(json_file)
-        name,frailty,heart_failure,established_CVD,symptoms,current_UACR,current_eGFR,current_BMI,current_drugs,hba1c_records=extract_data(patient_data)
+        frailty,heart_failure,established_CVD,symptoms,current_UACR,current_eGFR,current_BMI,current_drugs,hba1c_records=extract_data(patient_data)
         
         chronic_kidney_disease='NO' if current_eGFR>=60 and current_UACR<=30 else 'YES'
         obesity='YES' if current_BMI>=30 else 'NO'
 
-        columns_=["name","obesity","frailty","chronic_kidney_disease","heart_failure","established_CVD","symptoms","current_UACR","current_eGFR","current_BMI","hba1c_records","current_drugs"]
-        values_=[name,obesity,frailty,chronic_kidney_disease,heart_failure,established_CVD,symptoms,current_UACR,current_eGFR,current_BMI,hba1c_records,current_drugs]
+        columns_=["obesity","frailty","chronic_kidney_disease","heart_failure","established_CVD","symptoms","current_UACR","current_eGFR","current_BMI","hba1c_records","current_drugs"]
+        values_=[obesity,frailty,chronic_kidney_disease,heart_failure,established_CVD,symptoms,current_UACR,current_eGFR,current_BMI,hba1c_records,current_drugs]
         types=[]
         for item in values_:
             types.append(type(item))
 
         data={"Value":values_,"Type":types}
-        st.subheader("Below is {}'s data:".format(name))
+        st.subheader("Below is patient's data:")
         df = pd.DataFrame(data,index=columns_)    
         st.dataframe(df,use_container_width=True)
         
@@ -60,7 +60,7 @@ def main_get_treat():
         else:
             st.title('In your case the treatment priority goes for: "{}"'.format(condition[0]))
         #--------------------------------------------------------------------------------------------------------------------------------------
-
+    
         if(condition[0]=="No other clinical conditions"):
             proposed_med,next_date=normal_case(previous_state_,hba1c_records,symptoms,current_drugs)
         elif(condition[0]=="obesity"):
@@ -80,7 +80,7 @@ def main_get_treat():
         with col2:
             center_button = st.button('Done',on_click=callback)
         if (center_button or st.session_state.done_button):
-            new_med(name,proposed_med,next_date)
+            new_med(proposed_med,next_date)
         else:
             col01, col02, col03 = st.columns([1,4,1])
             with col02:

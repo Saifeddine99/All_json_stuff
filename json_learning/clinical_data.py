@@ -11,11 +11,6 @@ def clinical_data_():
 
     hba1c_records_=hba1c_records(previous_state_)
 
-    hba1c_string=""
-    for record in hba1c_records_:
-        hba1c_string+=str(record)+"/"
-    hba1c_string=hba1c_string[:len(hba1c_string)-1]
-
     symptoms=symptomatic()
     current_drugs=current_medication(previous_state_)
 
@@ -24,4 +19,4 @@ def clinical_data_():
     # Let's ask about the clinical condition :
     frailty,heart_failure,established_CVD,hepatic_steatosis,strokes=clinical_cond()
 
-    return(frailty,heart_failure,established_CVD,hepatic_steatosis,strokes,CVRFs,current_BMI,current_eGFR,current_UACR,current_drugs,symptoms,previous_state_,hba1c_records_,hba1c_string)
+    return(frailty,heart_failure,established_CVD,hepatic_steatosis,strokes,CVRFs,current_BMI,current_eGFR,current_UACR,current_drugs,symptoms,previous_state_,hba1c_records_)
