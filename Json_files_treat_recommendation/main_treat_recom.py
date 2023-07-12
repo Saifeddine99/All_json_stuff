@@ -12,7 +12,13 @@ from Json_files_treat_recommendation.one_clinical_disease.heart_failure_case imp
 from Json_files_treat_recommendation.one_clinical_disease.established_cvd_case import established_cvd
 from Json_files_treat_recommendation.one_clinical_disease.chronic_kidney_disease import non_critical_chronic_kidney_disease_,critical_chronic_kidney_disease_
 
+def callback():
+    #Button was clicked!
+    st.session_state.done_button= True
+
 def main_get_treat():
+    if "done_button" not in st.session_state:
+        st.session_state.done_button=False
     st.markdown("<h1 style='text-align: center; color: #0d325c;'>Treatment Recommendation</h1>", unsafe_allow_html = True)
     st.write('#')
     st.write('#')
@@ -72,13 +78,13 @@ def main_get_treat():
 
         col1, col2, col3 = st.columns([4,2,3])
         with col2:
-            center_button = st.button('Done')
-        if (center_button):
+            center_button = st.button('Done',on_click=callback)
+        if (center_button or st.session_state.done_button):
             new_med(name,proposed_med,next_date)
         else:
             col01, col02, col03 = st.columns([1,4,1])
             with col02:
-                st.write("Click on 'Done' once answering all questions !")
+                st.write("Click on 'Done' to get treatment")
     else:
         st.write('#')
         st.write('#')

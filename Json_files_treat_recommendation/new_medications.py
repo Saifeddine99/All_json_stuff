@@ -67,4 +67,8 @@ def new_med(name,proposed_med,next_date):
 
     col1, col2, col3 = st.columns([4,2,3])
     with col2:
-        download_button = st.download_button('Download', json_object, file_name="recommended_treatment_for_"+name+".json")
+        download_button = st.download_button('Download', json_object, file_name="recommended_treatment.json")
+    
+    if (download_button):
+        st.write("#")
+        st.success(": File saved well" ,icon="✅")
