@@ -58,8 +58,8 @@ def main_get_treat():
         condition=clinical_condition(obesity,frailty,chronic_kidney_disease,heart_failure,established_CVD,High_CVR,current_eGFR,current_UACR)
 
         if(condition[0]=='No other clinical conditions'):
-            st.title("Fortunately,You are not suffering from any additional disease!")
-        elif(condition[0]=='age_or_frailty'):
+            st.title("Fortunately,You are not suffering from any other clinical disease in addition to diabetes !")
+        elif(condition[0]=='established_cvd_or_high_cvr'):
             st.title('In your case the treatment priority goes for: "{}"'.format(condition[1]))
         else:
             st.title('In your case the treatment priority goes for: "{}"'.format(condition[0]))
@@ -69,7 +69,7 @@ def main_get_treat():
             proposed_med,next_date=normal_case(previous_state_,hba1c_records,symptoms,current_drugs)
         elif(condition[0]=="obesity"):
             proposed_med,next_date=obese(hba1c_records,previous_state_,current_BMI,current_drugs)
-        elif(condition[0]=="age_or_frailty"):
+        elif(condition[0]=="frailty"):
             proposed_med,next_date=elderly_frailty(hba1c_records,previous_state_,current_drugs)   
         elif(condition[0]=="heart_failure"):
             proposed_med,next_date=heart_failure_(hba1c_records,previous_state_,current_drugs)   

@@ -10,7 +10,7 @@ def clinical_condition(obesity, frailty, chronic_kidney_disease, heart_failure, 
         reason_='established_CVD' if established_CVD=='YES' else 'High_CVR'
         return(['established_cvd_or_high_cvr',reason_])
     elif(frailty=='YES'):
-        return(['age_or_frailty','frailty',])
+        return(['frailty',])
     elif(heart_failure=='YES'):
         return(['heart_failure',])
     elif(chronic_kidney_disease=='YES'and ((30<=current_eGFR<=59) or (current_UACR>30))):
