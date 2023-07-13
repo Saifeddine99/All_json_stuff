@@ -1,30 +1,31 @@
-def medications(drugs_string):
-    med_dict={}
-    if(len(drugs_string)>0):
-        drugs_list=drugs_string.split('/_/')
-        for drug in drugs_list:
-            drug_name,dose=drug.split(':')
-            med_dict[drug_name]=dose
-    return(med_dict)
-
-def hba1c_records_list(hba1c):
-    records_list=hba1c.split('/')
-    hba1c_list=[]
-    for record in records_list:
-        hba1c_list.append(float(record))
-    return(hba1c_list)
-
 def extract_data(json_object): 
 
-    frailty=json_object["content"][0]["data"]["events"][0]["data"]["items"][3]["value"]["symbol"]["value"]
-    heart_failure=json_object["content"][0]["data"]["events"][0]["data"]["items"][4]["value"]["symbol"]["value"]
-    established_cvd=json_object["content"][0]["data"]["events"][0]["data"]["items"][5]["value"]["symbol"]["value"]
-    symptoms=json_object["content"][1]["data"]["events"][0]["data"]["items"][0]["value"]["symbol"]["value"]
-    current_UACR=float(json_object["content"][2]["data"]["events"][1]["data"]["items"][1]["items"][1]["value"]["magnitude"])   
-    current_eGFR=float(json_object["content"][2]["data"]["events"][2]["data"]["items"][1]["items"][1]["value"]["magnitude"])
-    current_BMI=float(json_object["content"][4]["data"]["events"][0]["data"]["items"][0]["value"]["magnitude"])   
-    hba1c_records=hba1c_records_list(json_object["content"][2]["data"]["events"][0]["data"]["items"][1]["items"][1]["value"]["magnitude"])
+    frailty=json_object["content"][0]["data"]["events"][0]["data"]["items"][2]["value"]["symbol"]["value"].upper()
+    heart_failure=json_object["content"][0]["data"]["events"][0]["data"]["items"][3]["value"]["symbol"]["value"].upper()
+    established_cvd=json_object["content"][0]["data"]["events"][0]["data"]["items"][4]["value"]["symbol"]["value"].upper()
+    hepatic_steatosis=json_object["content"][0]["data"]["events"][0]["data"]["items"][5]["value"]["symbol"]["value"].upper()
+    strokes=json_object["content"][0]["data"]["events"][0]["data"]["items"][6]["value"]["symbol"]["value"].upper()
 
-    medication_dict=medications(json_object["content"][3]["data"]["events"][0]["data"]["items"][0]["value"]["value"])
+    symptoms=json_object["content"][1]["data"]["events"][0]["data"]["items"][0]["value"]["symbol"]["value"].upper()
 
-    return(frailty,heart_failure,established_cvd,symptoms,current_UACR,current_eGFR,current_BMI,medication_dict,hba1c_records)
+    current_eGFR=float(json_object["content"][2]["data"]["events"][3]["data"]["items"][1]["items"][0]["value"]["value"])
+    current_UACR=float(json_object["content"][2]["data"]["events"][4]["data"]["items"][1]["items"][0]["value"]["value"])   
+    
+    current_BMI=json_object["content"][4]["data"]["events"][0]["data"]["items"][0]["value"]["magnitude"]
+
+    hba1c_records=[]
+    for number in range(3):
+        if(json_object["content"][2]["data"]["events"][number]["data"]["items"][0]["value"]["value"]!= "Lorem ipsum"):
+            hba1c_records.append(float(json_object["content"][2]["data"]["events"][number]["data"]["items"][1]["items"][0]["value"]["value"]))
+
+    medication_dict={}
+    for number in range(10):
+        if(json_object["content"][3]["data"]["events"][number]["data"]["items"][0]["value"]["value"]!= "Lorem ipsum"):
+            medication_dict[json_object["content"][3]["data"]["events"][number]["data"]["items"][0]["value"]["value"]]=json_object["content"][3]["data"]["events"][number]["data"]["items"][1]["value"]["value"]
+
+    CVRFs=[]
+    for number in range(6):
+        if(json_object["content"][5]["data"]["events"][number]["data"]["items"][0]["value"]["value"]!= "Lorem ipsum"):
+            CVRFs.append(json_object["content"][5]["data"]["events"][number]["data"]["items"][0]["value"]["value"])
+
+    return(frailty,heart_failure,established_cvd,hepatic_steatosis,strokes,symptoms,current_UACR,current_eGFR,current_BMI,medication_dict,hba1c_records,CVRFs)

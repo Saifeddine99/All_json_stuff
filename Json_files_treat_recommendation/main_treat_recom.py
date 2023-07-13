@@ -27,13 +27,17 @@ def main_get_treat():
     json_file=st.file_uploader("",accept_multiple_files=False,type="json")
     if(json_file is not None):
         patient_data = json.load(json_file)
-        frailty,heart_failure,established_CVD,symptoms,current_UACR,current_eGFR,current_BMI,current_drugs,hba1c_records=extract_data(patient_data)
+        frailty,heart_failure,established_CVD,hepatic_steatosis,strokes,symptoms,current_UACR,current_eGFR,current_BMI,current_drugs,hba1c_records,CVRFs=extract_data(patient_data)
         
         chronic_kidney_disease='NO' if current_eGFR>=60 and current_UACR<=30 else 'YES'
         obesity='YES' if current_BMI>=30 else 'NO'
+        #High CVR:
+        High_CVR='YES' if len(CVRFs)>=3 else 'NO'
 
-        columns_=["obesity","frailty","chronic_kidney_disease","heart_failure","established_CVD","symptoms","current_UACR","current_eGFR","current_BMI","hba1c_records","current_drugs"]
-        values_=[obesity,frailty,chronic_kidney_disease,heart_failure,established_CVD,symptoms,current_UACR,current_eGFR,current_BMI,hba1c_records,current_drugs]
+        columns_=["obesity","frailty","chronic_kidney_disease","heart_failure","established_CVD","CVRFs","High_CVR","hepatic_steatosis","strokes","symptoms","current_UACR","current_eGFR","current_BMI","hba1c_records","current_drugs"]
+        
+        values_=[obesity,frailty,chronic_kidney_disease,heart_failure,established_CVD,CVRFs,High_CVR,hepatic_steatosis,strokes,symptoms,current_UACR,current_eGFR,current_BMI,hba1c_records,current_drugs]
+        
         types=[]
         for item in values_:
             types.append(type(item))
@@ -51,7 +55,7 @@ def main_get_treat():
             previous_state_="Two previous times or more"
 
         # Let's ask about the clinical condition :
-        condition=clinical_condition(obesity,frailty,chronic_kidney_disease,heart_failure,established_CVD,current_eGFR,current_UACR)
+        condition=clinical_condition(obesity,frailty,chronic_kidney_disease,heart_failure,established_CVD,High_CVR,current_eGFR,current_UACR)
 
         if(condition[0]=='No other clinical conditions'):
             st.title("Fortunately,You are not suffering from any additional disease!")
@@ -69,7 +73,7 @@ def main_get_treat():
             proposed_med,next_date=elderly_frailty(hba1c_records,previous_state_,current_drugs)   
         elif(condition[0]=="heart_failure"):
             proposed_med,next_date=heart_failure_(hba1c_records,previous_state_,current_drugs)   
-        elif(condition[0]=="established_cvd"):
+        elif(condition[0]=="established_cvd_or_high_cvr"):
             proposed_med,next_date=established_cvd(hba1c_records,previous_state_,current_drugs)  
         elif(condition[0]=="critical_chronic_kidney_disease"):
             proposed_med,next_date=critical_chronic_kidney_disease_(hba1c_records,previous_state_,current_drugs) #Not_righttttt         

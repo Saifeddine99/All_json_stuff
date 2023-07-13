@@ -56,6 +56,7 @@ def patient_EHRs():
             json_object = json.load(openfile)
         
         #Clinical conditions:
+
         if(frailty=="YES"):
             json_object["content"][0]["data"]["events"][0]["data"]["items"][2]["value"]["symbol"]["value"]=frailty
             json_object["content"][0]["data"]["events"][0]["data"]["items"][2]["value"]["value"]=1
@@ -77,9 +78,9 @@ def patient_EHRs():
             json_object["content"][0]["data"]["events"][0]["data"]["items"][5]["value"]["symbol"]["defining_code"]["code_string"]="at0020"   
         
         if(strokes=="YES"):
-            json_object["content"][0]["data"]["events"][0]["data"]["items"][5]["value"]["symbol"]["value"]=strokes
-            json_object["content"][0]["data"]["events"][0]["data"]["items"][5]["value"]["value"]=1
-            json_object["content"][0]["data"]["events"][0]["data"]["items"][5]["value"]["symbol"]["defining_code"]["code_string"]="at0023"   
+            json_object["content"][0]["data"]["events"][0]["data"]["items"][6]["value"]["symbol"]["value"]=strokes
+            json_object["content"][0]["data"]["events"][0]["data"]["items"][6]["value"]["value"]=1
+            json_object["content"][0]["data"]["events"][0]["data"]["items"][6]["value"]["symbol"]["defining_code"]["code_string"]="at0023"   
 
         if(symptoms=="YES"):
             json_object["content"][1]["data"]["events"][0]["data"]["items"][0]["value"]["symbol"]["value"]=symptoms
@@ -116,6 +117,8 @@ def patient_EHRs():
         for number,cvrf in enumerate(CVRFs):
             if number<6:
                 json_object["content"][5]["data"]["events"][number]["data"]["items"][0]["value"]["value"]=cvrf
+
+
 
         # Serializing json
         json_object = json.dumps(json_object, indent=4)
