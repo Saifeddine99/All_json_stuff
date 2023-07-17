@@ -1,47 +1,124 @@
 import streamlit as st
 import datetime
 
-def demongraphic_data():
+import json
+import os
 
-    st.markdown("<h1 style='color: #0B5345;'>Demographics data:</h1>", unsafe_allow_html = True)
+def demographic_data():
+    full_path_demographic_data = os.path.join('json_learning', 'patient.v0_20230713112750_000001_1.json')
+
     st.write("#")
+
+    st.markdown("<h1 style='color: #0B5345;'>Identity:</h1>", unsafe_allow_html = True)
+    st.write("#")
+
     col_1,col_2,col_3=st.columns([2,0.5,2])
     with col_1:
         #Getting patient's name:
         st.subheader("Name:")
-        name=st.text_input("enter your name:")
-        
+        name=st.text_input("enter your name:",label_visibility ="collapsed")
         if (len(name)==0):
             st.warning(": You entered nothing !" ,icon="⚠️")
         st.write("#")
 
-        #Getting patient's address:
-        st.subheader("Address:")
-        address=st.text_input("enter your address:")
-        if (len(address)==0):
+        #Getting patient's DNI:
+        st.subheader("DNI:")
+        dni=st.text_input("enter your national identifier:",label_visibility ="collapsed")
+        if (len(dni)==0):
+            st.warning(": You entered nothing !" ,icon="⚠️")
+        elif (correct_dni(dni) is False):
+            st.error(": DNI must be composed of 8 numbers and a capital letter at the end" ,icon="❌")
+        st.write("#")
+    
+    with col_3:
+        #Getting patient's name:
+        st.subheader("Surname:")
+        surname=st.text_input("",label_visibility ="collapsed")
+        if (len(surname)==0):
+            st.warning(": You entered nothing !" ,icon="⚠️") 
+        st.write("#") 
+        
+        #Getting patient's gender:
+        st.subheader("Gender:")
+        status = st.radio("", ('Male', 'Female'))
+        st.write("#")
+#----------------------------------------------------------------------------------------------------
+    st.markdown("<h1 style='color: #0B5345;'>Birth data:</h1>", unsafe_allow_html = True)
+    st.write("#")
+    
+    col_1,col_2,col_3=st.columns([2,0.5,2])
+    with col_1:
+        
+        #Getting patient's birth day:
+        st.subheader("Birth date:")
+        birthday = st.date_input(
+            "",
+            min_value=datetime.date(1923,1,1),
+            max_value=datetime.date.today(),
+            label_visibility ="collapsed"
+            )
+        st.write('Your birth date is on:',birthday)
+
+        #Getting Province:
+        st.subheader("Province of birth:")
+        province_birth=st.text_input("State/territory/province:")
+        if (len(province_birth)==0):
+            st.warning(": You entered nothing !" ,icon="⚠️")  
+    
+    with col_3:
+        #Getting Country of birth:
+        st.subheader("Country of birth:")
+        country_of_birth=st.text_input(":",label_visibility ="collapsed")
+        if (len(country_of_birth)==0):
+            st.warning(": You entered nothing !" ,icon="⚠️")
+        else:
+            st.write("#")
+            st.write("#")
+
+        #Getting Town:
+        st.subheader("Town of birth:")
+        town_birth=st.text_input("City/town/locality:")
+        if (len(town_birth)==0):
+            st.warning(": You entered nothing !" ,icon="⚠️")
+        
+#------------------------------------------------------------------------------------------------------
+    st.markdown("<h1 style='color: #0B5345;'>Address:</h1>", unsafe_allow_html = True)
+    st.write("#")
+
+    col_1,col_2,col_3,col_4,col_5=st.columns([2,0.1,2,0.1,2])
+    with col_1:
+        #Getting Street name:
+        st.subheader("Street name:")
+        street_name=st.text_input(":sde",label_visibility ="collapsed")
+        if (len(street_name)==0):
             st.warning(": You entered nothing !" ,icon="⚠️")
         st.write("#")
 
-        #Getting patient's birth day:
-        st.subheader("Birthday date:")
-        birthday = st.date_input(
-            "When\'s your birthday",
-            min_value=datetime.date(1923,1,1),
-            max_value=datetime.date.today()
-            )
-        st.write('Your birthday is:', birthday)
+        #Getting Country :
+        st.subheader("Country:")
+        country=st.text_input("Cuurent_country Identifier")
+        if (len(country)==0):
+            st.warning(": You entered nothing !" ,icon="⚠️")
 
     with col_3:
-        #Getting patient's name:
-        st.subheader("Surame:")
-        surname=st.text_input("enter your surname:")
-        if (len(surname)==0):
-            st.warning(": You entered nothing !" ,icon="⚠️") 
+        #Getting Street number:
+        st.subheader("Street N°:")
+        street_number=st.number_input(":h",min_value=0,step=1,label_visibility ="collapsed")
+        if (street_number==0):
+            st.warning(": You entered nothing !" ,icon="⚠️")
         st.write("#")
 
+        #Getting Province:
+        st.subheader("Province:")
+        province=st.text_input("Current State/territory/province:")
+        if (len(province)==0):
+            st.warning(": You entered nothing !" ,icon="⚠️")
+        st.write("#")
+
+    with col_5:
         #Getting patient's postal_code:
         st.subheader("Postal Code:")
-        postal_code=st.text_input("enter your postal code:")
+        postal_code=st.text_input("enter your postal code:",label_visibility ="collapsed")
         correct_postal_code=True
         if (len(postal_code)==0):
             st.warning(": You entered nothing !" ,icon="⚠️")
@@ -51,17 +128,68 @@ def demongraphic_data():
             correct_postal_code=False
         st.write("#")
 
-        #Getting patient's DNI:
-        st.subheader("DNI:")
-        dni=st.text_input("enter your national identifier:")
-        if (len(dni)==0):
+        #Getting Town:
+        st.subheader("Town:")
+        town=st.text_input("Current Suburb/town/locality:")
+        if (len(town)==0):
             st.warning(": You entered nothing !" ,icon="⚠️")
-        elif (correct_dni(dni) is False):
-            st.error(": DNI must be composed of 8 numbers and a capital letter at the end" ,icon="❌")
-
         st.write("#")
 
-    return(name,surname,address,postal_code,birthday,dni,correct_dni(dni),correct_postal_code)
+    if( len(name)>0 and len(surname)>0 and correct_dni(dni) and len(province_birth)>0 and len(country_of_birth)>0 and len(town_birth)>0 and len(street_name)>0 and street_number>0 and correct_postal_code and len(country)>0 and len(province)>0 and len(town)>0):
+        
+        #Demographic data file:
+        with open(full_path_demographic_data, 'r') as openfile:
+            # Reading from json file
+            json_object_demographic_data = json.load(openfile)
+
+        #demographic data:
+        json_object_demographic_data=add_demographic_data(json_object_demographic_data,name,surname,dni,status,birthday,country_of_birth,province_birth,town_birth,street_name,street_number,postal_code,country,province,town)
+
+        json_object_demographic_data = json.dumps(json_object_demographic_data, indent=4)
+
+        st.write("#")
+        st.write("#")
+        st.subheader("You can download the 'Demographic data' related to this patient for here:")
+        st.write("#")
+
+        col1, col2, col3 = st.columns([4,2,3])
+        with col2:    
+            download_demographics = st.download_button('Download demographic data', json_object_demographic_data, file_name="demographic data.json")
+        if (download_demographics):
+            st.write("#")
+            st.success(": File saved well" ,icon="✅")
+    else:
+        st.write("#")
+        st.error(": One of the values you entered is invalid, Please check them carefully!",icon="⛔")
+
+
+def add_demographic_data(json_object_demographic_data,name,surname,dni,status,birthday,country_of_birth,province_birth,town_birth,street_name,street_number,postal_code,country,province,town):
+
+    #Birth data:
+    json_object_demographic_data["details"]["items"][0]["items"][0]["value"]["value"]=str(birthday)
+    json_object_demographic_data["details"]["items"][0]["items"][1]["value"]["value"]=country_of_birth
+    json_object_demographic_data["details"]["items"][0]["items"][2]["value"]["value"]=province_birth
+    json_object_demographic_data["details"]["items"][0]["items"][3]["value"]["value"]=town_birth
+    json_object_demographic_data["details"]["items"][0]["items"][4]["value"]["value"]=status
+    json_object_demographic_data["details"]["items"][0]["items"][5]["value"]["value"]=dni
+
+    #Other data:
+    json_object_demographic_data["details"]["items"][3]["value"]["value"]=status
+
+    #Address:
+    json_object_demographic_data["contacts"][0]["addresses"][0]["details"]["items"][0]["items"][0]["value"]["value"]=street_name
+    json_object_demographic_data["contacts"][0]["addresses"][0]["details"]["items"][0]["items"][1]["value"]["value"]=street_number
+    json_object_demographic_data["contacts"][0]["addresses"][0]["details"]["items"][1]["value"]["value"]=postal_code
+    json_object_demographic_data["contacts"][0]["addresses"][0]["details"]["items"][2]["value"]["value"]=town
+    json_object_demographic_data["contacts"][0]["addresses"][0]["details"]["items"][3]["value"]["value"]=province
+    json_object_demographic_data["contacts"][0]["addresses"][0]["details"]["items"][4]["value"]["value"]=country
+
+    #Identity:
+    json_object_demographic_data["identities"][0]["details"]["items"][0]["value"]["value"]=name
+    json_object_demographic_data["identities"][0]["details"]["items"][1]["value"]["value"]=surname
+
+    return(json_object_demographic_data)
+
 
 def correct_dni(dni):
     try:
@@ -72,4 +200,3 @@ def correct_dni(dni):
         return(True)
     else :
         return(False)
-
