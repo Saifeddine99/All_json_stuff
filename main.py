@@ -10,7 +10,6 @@ from streamlit_cookies_manager import EncryptedCookieManager
 
 st.set_page_config(page_title="Json stuff", page_icon=":hospital:", layout="centered")
 
-<<<<<<< HEAD
 # This should be on top of your script
 cookies = EncryptedCookieManager(
     # This prefix will get added to all your cookie names.
@@ -32,13 +31,11 @@ if("user" not in cookies):
 
 
 
-=======
 def load_lottieurl(url):
     r = requests.get(url)
     if r.status_code != 200:
         return None
     return r.json()
->>>>>>> d2d5ba7fab128e7d3ab182b30014488289ab4cc1
 
 selected=option_menu(
     menu_title="Main Menu",
