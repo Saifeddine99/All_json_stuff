@@ -52,58 +52,51 @@ def hba1c_records(previous_state_):
     hba1c_records_=[]
     if (previous_state_=='First time'):
         st.subheader("HbA1c(%):")
-        current_HbA1c=st.text_input("current HbA1c value:")
-        try:
-            current_HbA1c= float(current_HbA1c)
-        except:
-            st.write("Please verifie your HbA1c value !, It must be a number>0!")
+        current_HbA1c=st.number_input("current HbA1c value:",min_value=0.00,step=0.01)
+        if (current_HbA1c==0):
+            st.warning(": You entered nothing!" ,icon="⚠️")
+        st.write("#")
         hba1c_records_.append(current_HbA1c)
-
     elif (previous_state_=='Second time'):
         col_1,col_2=st.columns([1,1])
         with col_1:
             st.subheader("Current HbA1c(%):")
-            current_HbA1c=st.text_input("current HbA1c value:")
-            try:
-                current_HbA1c= float(current_HbA1c)
-            except:
-                st.write("Please verifie your HbA1c value !, It must be a number>0!")
+            current_HbA1c=st.number_input("current HbA1c value:",min_value=0.00,step=0.01)
+            if (current_HbA1c==0):
+                st.warning(": You entered nothing!" ,icon="⚠️")
+
             hba1c_records_.append(current_HbA1c)
         with col_2:
             st.subheader("Previous HbA1c(%):")
-            previous_HbA1c=st.text_input("previous HbA1c value:")
-            try:
-                previous_HbA1c= float(previous_HbA1c)
-            except:
-                st.write("Please verifie this value !, It must be a number>0!")
+            previous_HbA1c=st.number_input("previous HbA1c value:",min_value=0.00,step=0.01)
+            if (previous_HbA1c==0):
+                st.warning(": You entered nothing!" ,icon="⚠️")
+
             hba1c_records_.append(previous_HbA1c)
     else:
         col_1, col_2, col_3 = st.columns([1,1,1])
         with col_1:
             st.subheader("Current HbA1c(%):")
-            current_HbA1c=st.text_input("current HbA1c value:")
-            try:
-                current_HbA1c= float(current_HbA1c)
-            except:
-                st.write("Please verifie your HbA1c value !, It must be a number>0!")
+            current_HbA1c=st.number_input("current HbA1c value:",min_value=0.00,step=0.01)
+            if (current_HbA1c==0):
+                st.warning(": You entered nothing!" ,icon="⚠️")
+
             hba1c_records_.append(current_HbA1c)
 
         with col_2:
             st.subheader("Previous HbA1c(%):")
-            previous_HbA1c=st.text_input("previous HbA1c value:")
-            try:
-                previous_HbA1c= float(previous_HbA1c)
-            except:
-                st.write("Please verifie your HbA1c value !, It must be a number>0!")
+            previous_HbA1c=st.number_input("previous HbA1c value:",min_value=0.00,step=0.01)
+            if (previous_HbA1c==0):
+                st.warning(": You entered nothing!" ,icon="⚠️")
+
             hba1c_records_.append(previous_HbA1c)
             
         with col_3:
             st.subheader("HbA1c before previous one:")
-            before_previous_HbA1c=st.text_input("before previous HbA1c value:")
-            try:
-                before_previous_HbA1c= float(before_previous_HbA1c)
-            except:
-                st.write("Please verifie your HbA1c value !, It must be a number>0!")
+            before_previous_HbA1c=st.number_input("before previous HbA1c value:",min_value=0.00,step=0.01)
+            if (before_previous_HbA1c==0):
+                st.warning(": You entered nothing!" ,icon="⚠️")
+
             hba1c_records_.append(before_previous_HbA1c)
     st.markdown("""---""")
     
@@ -133,12 +126,8 @@ def current_medication(previous_state_):
             st.dataframe(df,use_container_width=True)
         # I will add a separation line here
         st.markdown("""---""")
-    drugs_string=""
-    for key,value in med_dose_last_time.items():
-        drugs_string+=key+":"+value+"/_/"
-    if(len(drugs_string)>0):
-        drugs_string=drugs_string[:len(drugs_string)-3]
-    return(drugs_string)
+
+    return(med_dose_last_time)
 #----------------------------------------------------------------------------------------------------
 def symptomatic():
     st.subheader("Symptoms :")
@@ -157,29 +146,22 @@ def other_analyses_records():
     with col001:
         #Getting eGFR value:
         st.subheader("eGFR(ml/min):")
-        current_eGFR=st.text_input("enter your current eGFR: estimated glomerular filtration rate (ml/min):")
-        try:
-            current_eGFR= float(current_eGFR)
-        except:
-            st.write("Please verify your eGFR value !, It must be a number!")
-
+        current_eGFR=st.number_input("enter your current eGFR: estimated glomerular filtration rate (ml/min):",min_value=0.00,step=0.01)
+        if (current_eGFR==0):
+            st.warning(": You entered nothing!" ,icon="⚠️")
     with col002:
         #Getting UACR value:
         st.subheader("UACR(mg/g):")
-        current_UACR=st.text_input("enter your current UACR: urine albumin/creatinine ratio (mg/g):")
-        try:
-            current_UACR= float(current_UACR)
-        except:
-            st.write("Please verify your UACR value !, It must be a number!")        
+        current_UACR=st.number_input("enter your current UACR: urine albumin/creatinine ratio (mg/g):",min_value=0.00,step=0.01)
+        if (current_UACR==0):
+            st.warning(": You entered nothing!" ,icon="⚠️")
 
     with col003:
         #Getting BMI value:
         st.subheader("BMI(Kg/m²):")
-        current_BMI=st.text_input("enter your current BMI value (Kg/m²):")
-        try:
-            current_BMI= float(current_BMI)
-        except:
-            st.write("Please verify your BMI value !, It must be a number>0!")
+        current_BMI=st.number_input("enter your current BMI value (Kg/m²):",min_value=0.00,step=0.01)
+        if (current_BMI==0):
+            st.warning(": You entered nothing!" ,icon="⚠️")
 
     # I will add a separation line here
     st.markdown("""---""")

@@ -24,8 +24,10 @@ def established_cvd(hba1c_records,previous_state,med_dose_last_time):
                 else:
                     proposed_med["GLP1RA"]=full_dose
                     second_or_third_med_level.remove("DPP4i")
+                    second_or_third_med_level.remove("oral GLP1ra")
+
                 proposed_med["You can choose any item from this list: {}".format(second_or_third_med_level)]=full_dose
-            elif("Metformin" in med_dose_last_time and not("Basal insulin" in med_dose_last_time) and len(med_dose_last_time)>=3 and (("SGLT2i" in med_dose_last_time and not("GLP1RA" in med_dose_last_time)) or ("GLP1RA" in med_dose_last_time and not("DPP4i" in med_dose_last_time)))):
+            elif("Metformin" in med_dose_last_time and not("Basal insulin" in med_dose_last_time) and len(med_dose_last_time)>=3 and (("SGLT2i" in med_dose_last_time and not("GLP1RA" in med_dose_last_time)) or ("GLP1RA" in med_dose_last_time and not("DPP4i" in med_dose_last_time) and not('oral GLP1ra' in med_dose_last_time)))):
                 drugs=list(med_dose_last_time.keys())
                 drugs.remove("Metformin")
                 if("GLP1RA"in drugs):  
@@ -39,13 +41,13 @@ def established_cvd(hba1c_records,previous_state,med_dose_last_time):
                     proposed_med["Basal insulin"]=full_dose
                 else:
                     proposed_med={}
-                    proposed_med["Can't recommended treatment for this case !"]=""
+                    proposed_med["Can't recommend treatment for this case !"]=""
             elif("Basal insulin" in med_dose_last_time):
                 proposed_med={}
                 proposed_med["Basal insulin"]= full_dose
             else:
                 proposed_med={}
-                proposed_med["Can't recommended treatment for this case !"]=""
+                proposed_med["Can't recommend treatment for this case !"]=""
         else:# Here we work on the case of patients who achieved the target
             next_date="Your next check is after 6 months"
             for med_item in med_dose_last_time.keys():

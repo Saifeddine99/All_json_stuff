@@ -33,13 +33,13 @@ def heart_failure_(hba1c_records,previous_state,med_dose_last_time):
                     proposed_med["Basal insulin"]=full_dose
                 else:
                     proposed_med={}
-                    proposed_med["Can't recommended treatment for this case !"]=""
+                    proposed_med["Can't recommend treatment for this case !"]=""
             elif("Basal insulin" in med_dose_last_time):
                 proposed_med={}
                 proposed_med["Basal insulin"]= full_dose
             else:
                 proposed_med={}
-                proposed_med["Can't recommended treatment for this case !"]=""
+                proposed_med["Can't recommend treatment for this case !"]=""
         else:# Here we work on the case of patients who achieved the target
             next_date="Your next check is after 6 months"
             for med_item in med_dose_last_time.keys():

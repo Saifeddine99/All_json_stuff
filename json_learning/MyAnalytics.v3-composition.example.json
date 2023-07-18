@@ -1,0 +1,1822 @@
+{
+    "_type": "COMPOSITION",
+    "name": {
+        "_type": "DV_TEXT",
+        "value": "MyAnalytics.v3"
+    },
+    "archetype_details": {
+        "archetype_id": {
+            "value": "openEHR-EHR-COMPOSITION.data_collection.v0"
+        },
+        "template_id": {
+            "value": "MyAnalytics.v3"
+        },
+        "rm_version": "1.0.4"
+    },
+    "language": {
+        "_type": "CODE_PHRASE",
+        "terminology_id": {
+            "_type": "TERMINOLOGY_ID",
+            "value": "ISO_639-1"
+        },
+        "code_string": "en"
+    },
+    "territory": {
+        "_type": "CODE_PHRASE",
+        "terminology_id": {
+            "_type": "TERMINOLOGY_ID",
+            "value": "ISO_3166-1"
+        },
+        "code_string": "DE"
+    },
+    "category": {
+        "_type": "DV_CODED_TEXT",
+        "value": "persistent",
+        "defining_code": {
+            "_type": "CODE_PHRASE",
+            "terminology_id": {
+                "_type": "TERMINOLOGY_ID",
+                "value": "openehr"
+            },
+            "code_string": "431"
+        }
+    },
+    "composer": {
+        "_type": "PARTY_IDENTIFIED",
+        "name": "Max Mustermann"
+    },
+    "context": {
+        "_type": "EVENT_CONTEXT",
+        "start_time": {
+            "_type": "DV_DATE_TIME",
+            "value": "2022-02-03T04:05:06.000"
+        },
+        "end_time": {
+            "_type": "DV_DATE_TIME",
+            "value": "2022-02-03T04:05:06.000"
+        },
+        "setting": {
+            "_type": "DV_CODED_TEXT",
+            "value": "home",
+            "defining_code": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "openehr"
+                },
+                "code_string": "225"
+            }
+        },
+        "health_care_facility": {
+            "_type": "PARTY_IDENTIFIED",
+            "name": "DOE, John"
+        }
+    },
+    "content": [
+        {
+            "_type": "OBSERVATION",
+            "name": {
+                "_type": "DV_TEXT",
+                "value": "ClinicalConditions"
+            },
+            "archetype_details": {
+                "archetype_id": {
+                    "value": "openEHR-EHR-OBSERVATION.clinicalconditions.v0"
+                },
+                "template_id": {
+                    "value": "MyAnalytics.v3"
+                },
+                "rm_version": "1.0.4"
+            },
+            "language": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "ISO_639-1"
+                },
+                "code_string": "en"
+            },
+            "encoding": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "IANA_character-sets"
+                },
+                "code_string": "ISO-10646-UTF-1"
+            },
+            "workflow_id": {
+                "_type": "OBJECT_REF",
+                "namespace": "unknown",
+                "type": "ANY",
+                "id": {
+                    "_type": "GENERIC_ID",
+                    "value": "a642f43a-ad21-32e3-977b-01dcb838e500",
+                    "scheme": "scheme"
+                }
+            },
+            "subject": {
+                "_type": "PARTY_SELF"
+            },
+            "provider": {
+                "_type": "PARTY_SELF"
+            },
+            "guideline_id": {
+                "_type": "OBJECT_REF",
+                "namespace": "unknown",
+                "type": "ANY",
+                "id": {
+                    "_type": "GENERIC_ID",
+                    "value": "5e12058a-2706-39e3-a088-de80d811e052",
+                    "scheme": "scheme"
+                }
+            },
+            "data": {
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "History"
+                },
+                "origin": {
+                    "_type": "DV_DATE_TIME",
+                    "value": "2022-02-03T04:05:06.000"
+                },
+                "period": {
+                    "_type": "DV_DURATION",
+                    "value": "PT0S"
+                },
+                "duration": {
+                    "_type": "DV_DURATION",
+                    "value": "PT0S"
+                },
+                "events": [
+                    {
+                        "_type": "INTERVAL_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Age"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0017"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Obesity"
+                                    },
+                                    "value": {
+                                        "_type": "DV_ORDINAL",
+                                        "symbol": {
+                                            "_type": "DV_CODED_TEXT",
+                                            "value": "No",
+                                            "defining_code": {
+                                                "_type": "CODE_PHRASE",
+                                                "terminology_id": {
+                                                    "_type": "TERMINOLOGY_ID",
+                                                    "value": "external"
+                                                },
+                                                "code_string": "at0008"
+                                            }
+                                        },
+                                        "value": 0
+                                    },
+                                    "archetype_node_id": "at0004"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Frailty"
+                                    },
+                                    "value": {
+                                        "_type": "DV_ORDINAL",
+                                        "symbol": {
+                                            "_type": "DV_CODED_TEXT",
+                                            "value": "No",
+                                            "defining_code": {
+                                                "_type": "CODE_PHRASE",
+                                                "terminology_id": {
+                                                    "_type": "TERMINOLOGY_ID",
+                                                    "value": "external"
+                                                },
+                                                "code_string": "at0010"
+                                            }
+                                        },
+                                        "value": 0
+                                    },
+                                    "archetype_node_id": "at0005"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Heart failure"
+                                    },
+                                    "value": {
+                                        "_type": "DV_ORDINAL",
+                                        "symbol": {
+                                            "_type": "DV_CODED_TEXT",
+                                            "value": "No",
+                                            "defining_code": {
+                                                "_type": "CODE_PHRASE",
+                                                "terminology_id": {
+                                                    "_type": "TERMINOLOGY_ID",
+                                                    "value": "external"
+                                                },
+                                                "code_string": "at0012"
+                                            }
+                                        },
+                                        "value": 0
+                                    },
+                                    "archetype_node_id": "at0006"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Established CVD"
+                                    },
+                                    "value": {
+                                        "_type": "DV_ORDINAL",
+                                        "symbol": {
+                                            "_type": "DV_CODED_TEXT",
+                                            "value": "No",
+                                            "defining_code": {
+                                                "_type": "CODE_PHRASE",
+                                                "terminology_id": {
+                                                    "_type": "TERMINOLOGY_ID",
+                                                    "value": "external"
+                                                },
+                                                "code_string": "at0014"
+                                            }
+                                        },
+                                        "value": 0
+                                    },
+                                    "archetype_node_id": "at0007"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Hepatic Steatosis"
+                                    },
+                                    "value": {
+                                        "_type": "DV_ORDINAL",
+                                        "symbol": {
+                                            "_type": "DV_CODED_TEXT",
+                                            "value": "No",
+                                            "defining_code": {
+                                                "_type": "CODE_PHRASE",
+                                                "terminology_id": {
+                                                    "_type": "TERMINOLOGY_ID",
+                                                    "value": "external"
+                                                },
+                                                "code_string": "at0019"
+                                            }
+                                        },
+                                        "value": 0
+                                    },
+                                    "archetype_node_id": "at0018"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Strokes"
+                                    },
+                                    "value": {
+                                        "_type": "DV_ORDINAL",
+                                        "symbol": {
+                                            "_type": "DV_CODED_TEXT",
+                                            "value": "No",
+                                            "defining_code": {
+                                                "_type": "CODE_PHRASE",
+                                                "terminology_id": {
+                                                    "_type": "TERMINOLOGY_ID",
+                                                    "value": "external"
+                                                },
+                                                "code_string": "at0022"
+                                            }
+                                        },
+                                        "value": 0
+                                    },
+                                    "archetype_node_id": "at0021"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "width": {
+                            "_type": "DV_DURATION",
+                            "value": "PT42H"
+                        },
+                        "math_function": {
+                            "_type": "DV_CODED_TEXT",
+                            "value": "minimum",
+                            "defining_code": {
+                                "_type": "CODE_PHRASE",
+                                "terminology_id": {
+                                    "_type": "TERMINOLOGY_ID",
+                                    "value": "openehr"
+                                },
+                                "code_string": "145"
+                            }
+                        },
+                        "archetype_node_id": "at0002"
+                    }
+                ],
+                "archetype_node_id": "at0001"
+            },
+            "archetype_node_id": "openEHR-EHR-OBSERVATION.clinicalconditions.v0"
+        },
+        {
+            "_type": "OBSERVATION",
+            "name": {
+                "_type": "DV_TEXT",
+                "value": "Symptoms"
+            },
+            "archetype_details": {
+                "archetype_id": {
+                    "value": "openEHR-EHR-OBSERVATION.symptoms.v0"
+                },
+                "template_id": {
+                    "value": "MyAnalytics.v3"
+                },
+                "rm_version": "1.0.4"
+            },
+            "language": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "ISO_639-1"
+                },
+                "code_string": "en"
+            },
+            "encoding": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "IANA_character-sets"
+                },
+                "code_string": "ISO-10646-UTF-1"
+            },
+            "workflow_id": {
+                "_type": "OBJECT_REF",
+                "namespace": "unknown",
+                "type": "ANY",
+                "id": {
+                    "_type": "GENERIC_ID",
+                    "value": "a54d0b9c-0c37-3cbb-841c-9b7bd0e3c7d0",
+                    "scheme": "scheme"
+                }
+            },
+            "subject": {
+                "_type": "PARTY_SELF"
+            },
+            "provider": {
+                "_type": "PARTY_SELF"
+            },
+            "guideline_id": {
+                "_type": "OBJECT_REF",
+                "namespace": "unknown",
+                "type": "ANY",
+                "id": {
+                    "_type": "GENERIC_ID",
+                    "value": "441696ec-254b-39f0-bdd2-fe91d80addde",
+                    "scheme": "scheme"
+                }
+            },
+            "data": {
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "History"
+                },
+                "origin": {
+                    "_type": "DV_DATE_TIME",
+                    "value": "2022-02-03T04:05:06.000"
+                },
+                "period": {
+                    "_type": "DV_DURATION",
+                    "value": "PT0S"
+                },
+                "duration": {
+                    "_type": "DV_DURATION",
+                    "value": "PT0S"
+                },
+                "events": [
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Symptomatic?"
+                                    },
+                                    "value": {
+                                        "_type": "DV_ORDINAL",
+                                        "symbol": {
+                                            "_type": "DV_CODED_TEXT",
+                                            "value": "No",
+                                            "defining_code": {
+                                                "_type": "CODE_PHRASE",
+                                                "terminology_id": {
+                                                    "_type": "TERMINOLOGY_ID",
+                                                    "value": "external"
+                                                },
+                                                "code_string": "at0005"
+                                            }
+                                        },
+                                        "value": 0
+                                    },
+                                    "archetype_node_id": "at0004"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    }
+                ],
+                "archetype_node_id": "at0001"
+            },
+            "archetype_node_id": "openEHR-EHR-OBSERVATION.symptoms.v0"
+        },
+        {
+            "_type": "OBSERVATION",
+            "name": {
+                "_type": "DV_TEXT",
+                "value": "Laboratory test result"
+            },
+            "archetype_details": {
+                "archetype_id": {
+                    "value": "openEHR-EHR-OBSERVATION.laboratory_test_result.v1"
+                },
+                "template_id": {
+                    "value": "MyAnalytics.v3"
+                },
+                "rm_version": "1.0.4"
+            },
+            "language": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "ISO_639-1"
+                },
+                "code_string": "en"
+            },
+            "encoding": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "IANA_character-sets"
+                },
+                "code_string": "ISO-10646-UTF-1"
+            },
+            "workflow_id": {
+                "_type": "OBJECT_REF",
+                "namespace": "unknown",
+                "type": "ANY",
+                "id": {
+                    "_type": "GENERIC_ID",
+                    "value": "28d43642-f3e4-3a63-a6d0-6fdda9d75465",
+                    "scheme": "scheme"
+                }
+            },
+            "subject": {
+                "_type": "PARTY_SELF"
+            },
+            "provider": {
+                "_type": "PARTY_SELF"
+            },
+            "guideline_id": {
+                "_type": "OBJECT_REF",
+                "namespace": "unknown",
+                "type": "ANY",
+                "id": {
+                    "_type": "GENERIC_ID",
+                    "value": "a8f48e4f-a3f4-39e6-a07e-1a7b4a099546",
+                    "scheme": "scheme"
+                }
+            },
+            "data": {
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "Event Series"
+                },
+                "origin": {
+                    "_type": "DV_DATE_TIME",
+                    "value": "2022-02-03T04:05:06.000"
+                },
+                "period": {
+                    "_type": "DV_DURATION",
+                    "value": "PT0S"
+                },
+                "duration": {
+                    "_type": "DV_DURATION",
+                    "value": "PT0S"
+                },
+                "events": [
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Test name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0005"
+                                },
+                                {
+                                    "_type": "CLUSTER",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Laboratory analyte result"
+                                    },
+                                    "archetype_details": {
+                                        "archetype_id": {
+                                            "value": "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
+                                        },
+                                        "template_id": {
+                                            "value": "MyAnalytics.v3"
+                                        },
+                                        "rm_version": "1.0.4"
+                                    },
+                                    "items": [
+                                        {
+                                            "_type": "ELEMENT",
+                                            "name": {
+                                                "_type": "DV_TEXT",
+                                                "value": "Analyte result"
+                                            },
+                                            "value": {
+                                                "_type": "DV_TEXT",
+                                                "value": "Lorem ipsum"
+                                            },
+                                            "archetype_node_id": "at0001"
+                                        }
+                                    ],
+                                    "archetype_node_id": "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Test name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0005"
+                                },
+                                {
+                                    "_type": "CLUSTER",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Laboratory analyte result"
+                                    },
+                                    "archetype_details": {
+                                        "archetype_id": {
+                                            "value": "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
+                                        },
+                                        "template_id": {
+                                            "value": "MyAnalytics.v3"
+                                        },
+                                        "rm_version": "1.0.4"
+                                    },
+                                    "items": [
+                                        {
+                                            "_type": "ELEMENT",
+                                            "name": {
+                                                "_type": "DV_TEXT",
+                                                "value": "Analyte result"
+                                            },
+                                            "value": {
+                                                "_type": "DV_TEXT",
+                                                "value": "Lorem ipsum"
+                                            },
+                                            "archetype_node_id": "at0001"
+                                        }
+                                    ],
+                                    "archetype_node_id": "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Test name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0005"
+                                },
+                                {
+                                    "_type": "CLUSTER",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Laboratory analyte result"
+                                    },
+                                    "archetype_details": {
+                                        "archetype_id": {
+                                            "value": "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
+                                        },
+                                        "template_id": {
+                                            "value": "MyAnalytics.v3"
+                                        },
+                                        "rm_version": "1.0.4"
+                                    },
+                                    "items": [
+                                        {
+                                            "_type": "ELEMENT",
+                                            "name": {
+                                                "_type": "DV_TEXT",
+                                                "value": "Analyte result"
+                                            },
+                                            "value": {
+                                                "_type": "DV_TEXT",
+                                                "value": "Lorem ipsum"
+                                            },
+                                            "archetype_node_id": "at0001"
+                                        }
+                                    ],
+                                    "archetype_node_id": "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Test name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0005"
+                                },
+                                {
+                                    "_type": "CLUSTER",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Laboratory analyte result"
+                                    },
+                                    "archetype_details": {
+                                        "archetype_id": {
+                                            "value": "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
+                                        },
+                                        "template_id": {
+                                            "value": "MyAnalytics.v3"
+                                        },
+                                        "rm_version": "1.0.4"
+                                    },
+                                    "items": [
+                                        {
+                                            "_type": "ELEMENT",
+                                            "name": {
+                                                "_type": "DV_TEXT",
+                                                "value": "Analyte result"
+                                            },
+                                            "value": {
+                                                "_type": "DV_TEXT",
+                                                "value": "Lorem ipsum"
+                                            },
+                                            "archetype_node_id": "at0001"
+                                        }
+                                    ],
+                                    "archetype_node_id": "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Test name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0005"
+                                },
+                                {
+                                    "_type": "CLUSTER",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Laboratory analyte result"
+                                    },
+                                    "archetype_details": {
+                                        "archetype_id": {
+                                            "value": "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
+                                        },
+                                        "template_id": {
+                                            "value": "MyAnalytics.v3"
+                                        },
+                                        "rm_version": "1.0.4"
+                                    },
+                                    "items": [
+                                        {
+                                            "_type": "ELEMENT",
+                                            "name": {
+                                                "_type": "DV_TEXT",
+                                                "value": "Analyte result"
+                                            },
+                                            "value": {
+                                                "_type": "DV_TEXT",
+                                                "value": "Lorem ipsum"
+                                            },
+                                            "archetype_node_id": "at0001"
+                                        }
+                                    ],
+                                    "archetype_node_id": "openEHR-EHR-CLUSTER.laboratory_test_analyte.v1"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    }
+                ],
+                "archetype_node_id": "at0001"
+            },
+            "archetype_node_id": "openEHR-EHR-OBSERVATION.laboratory_test_result.v1"
+        },
+        {
+            "_type": "OBSERVATION",
+            "name": {
+                "_type": "DV_TEXT",
+                "value": "Medication statement"
+            },
+            "archetype_details": {
+                "archetype_id": {
+                    "value": "openEHR-EHR-OBSERVATION.medication_statement.v0"
+                },
+                "template_id": {
+                    "value": "MyAnalytics.v3"
+                },
+                "rm_version": "1.0.4"
+            },
+            "language": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "ISO_639-1"
+                },
+                "code_string": "en"
+            },
+            "encoding": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "IANA_character-sets"
+                },
+                "code_string": "ISO-10646-UTF-1"
+            },
+            "workflow_id": {
+                "_type": "OBJECT_REF",
+                "namespace": "unknown",
+                "type": "ANY",
+                "id": {
+                    "_type": "GENERIC_ID",
+                    "value": "22e0882f-baa6-3bdd-87ae-bc4d23e89e61",
+                    "scheme": "scheme"
+                }
+            },
+            "subject": {
+                "_type": "PARTY_SELF"
+            },
+            "provider": {
+                "_type": "PARTY_SELF"
+            },
+            "guideline_id": {
+                "_type": "OBJECT_REF",
+                "namespace": "unknown",
+                "type": "ANY",
+                "id": {
+                    "_type": "GENERIC_ID",
+                    "value": "92a34bd7-14eb-3440-9210-b345b9264693",
+                    "scheme": "scheme"
+                }
+            },
+            "data": {
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "History"
+                },
+                "origin": {
+                    "_type": "DV_DATE_TIME",
+                    "value": "2022-02-03T04:05:06.000"
+                },
+                "period": {
+                    "_type": "DV_DURATION",
+                    "value": "PT0S"
+                },
+                "duration": {
+                    "_type": "DV_DURATION",
+                    "value": "PT0S"
+                },
+                "events": [
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Medication item name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0006"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Dose and timing"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0033"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Medication item name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0006"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Dose and timing"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0033"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Medication item name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0006"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Dose and timing"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0033"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Medication item name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0006"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Dose and timing"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0033"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Medication item name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0006"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Dose and timing"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0033"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Medication item name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0006"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Dose and timing"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0033"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Medication item name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0006"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Dose and timing"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0033"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Medication item name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0006"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Dose and timing"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0033"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Medication item name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0006"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Dose and timing"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0033"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Medication item name"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0006"
+                                },
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Dose and timing"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0033"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    }
+                ],
+                "archetype_node_id": "at0001"
+            },
+            "archetype_node_id": "openEHR-EHR-OBSERVATION.medication_statement.v0"
+        },
+        {
+            "_type": "OBSERVATION",
+            "name": {
+                "_type": "DV_TEXT",
+                "value": "Body mass index"
+            },
+            "archetype_details": {
+                "archetype_id": {
+                    "value": "openEHR-EHR-OBSERVATION.body_mass_index.v2"
+                },
+                "template_id": {
+                    "value": "MyAnalytics.v3"
+                },
+                "rm_version": "1.0.4"
+            },
+            "language": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "ISO_639-1"
+                },
+                "code_string": "en"
+            },
+            "encoding": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "IANA_character-sets"
+                },
+                "code_string": "ISO-10646-UTF-1"
+            },
+            "workflow_id": {
+                "_type": "OBJECT_REF",
+                "namespace": "unknown",
+                "type": "ANY",
+                "id": {
+                    "_type": "GENERIC_ID",
+                    "value": "ebd4c5ab-9ecb-3497-9452-7a30c56c1b81",
+                    "scheme": "scheme"
+                }
+            },
+            "subject": {
+                "_type": "PARTY_SELF"
+            },
+            "provider": {
+                "_type": "PARTY_SELF"
+            },
+            "guideline_id": {
+                "_type": "OBJECT_REF",
+                "namespace": "unknown",
+                "type": "ANY",
+                "id": {
+                    "_type": "GENERIC_ID",
+                    "value": "e007b8d5-6023-3236-a261-2d2aa42d6848",
+                    "scheme": "scheme"
+                }
+            },
+            "data": {
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "history"
+                },
+                "origin": {
+                    "_type": "DV_DATE_TIME",
+                    "value": "2022-02-03T04:05:06.000"
+                },
+                "period": {
+                    "_type": "DV_DURATION",
+                    "value": "PT0S"
+                },
+                "duration": {
+                    "_type": "DV_DURATION",
+                    "value": "PT0S"
+                },
+                "events": [
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Single"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Body mass index"
+                                    },
+                                    "value": {
+                                        "_type": "DV_QUANTITY",
+                                        "units": "kg/m2",
+                                        "magnitude": 500.0
+                                    },
+                                    "archetype_node_id": "at0004"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    }
+                ],
+                "archetype_node_id": "at0001"
+            },
+            "archetype_node_id": "openEHR-EHR-OBSERVATION.body_mass_index.v2"
+        },
+        {
+            "_type": "OBSERVATION",
+            "name": {
+                "_type": "DV_TEXT",
+                "value": "CardiovascularRiskFactors"
+            },
+            "archetype_details": {
+                "archetype_id": {
+                    "value": "openEHR-EHR-OBSERVATION.cardiovascularriskfactors.v0"
+                },
+                "template_id": {
+                    "value": "MyAnalytics.v3"
+                },
+                "rm_version": "1.0.4"
+            },
+            "language": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "ISO_639-1"
+                },
+                "code_string": "en"
+            },
+            "encoding": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                    "_type": "TERMINOLOGY_ID",
+                    "value": "IANA_character-sets"
+                },
+                "code_string": "ISO-10646-UTF-1"
+            },
+            "workflow_id": {
+                "_type": "OBJECT_REF",
+                "namespace": "unknown",
+                "type": "ANY",
+                "id": {
+                    "_type": "GENERIC_ID",
+                    "value": "3b38e947-950f-3226-b738-83723717f50c",
+                    "scheme": "scheme"
+                }
+            },
+            "subject": {
+                "_type": "PARTY_SELF"
+            },
+            "provider": {
+                "_type": "PARTY_SELF"
+            },
+            "guideline_id": {
+                "_type": "OBJECT_REF",
+                "namespace": "unknown",
+                "type": "ANY",
+                "id": {
+                    "_type": "GENERIC_ID",
+                    "value": "bda3e53f-ce53-3888-b66e-09b836b399fa",
+                    "scheme": "scheme"
+                }
+            },
+            "data": {
+                "name": {
+                    "_type": "DV_TEXT",
+                    "value": "History"
+                },
+                "origin": {
+                    "_type": "DV_DATE_TIME",
+                    "value": "2022-02-03T04:05:06.000"
+                },
+                "period": {
+                    "_type": "DV_DURATION",
+                    "value": "PT0S"
+                },
+                "duration": {
+                    "_type": "DV_DURATION",
+                    "value": "PT0S"
+                },
+                "events": [
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Factor"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0004"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Factor"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0004"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Factor"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0004"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Factor"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0004"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Factor"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0004"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    },
+                    {
+                        "_type": "POINT_EVENT",
+                        "name": {
+                            "_type": "DV_TEXT",
+                            "value": "Any event"
+                        },
+                        "time": {
+                            "_type": "DV_DATE_TIME",
+                            "value": "2022-02-03T04:05:06.000"
+                        },
+                        "data": {
+                            "_type": "ITEM_TREE",
+                            "name": {
+                                "_type": "DV_TEXT",
+                                "value": "Tree"
+                            },
+                            "items": [
+                                {
+                                    "_type": "ELEMENT",
+                                    "name": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Factor"
+                                    },
+                                    "value": {
+                                        "_type": "DV_TEXT",
+                                        "value": "Lorem ipsum"
+                                    },
+                                    "archetype_node_id": "at0004"
+                                }
+                            ],
+                            "archetype_node_id": "at0003"
+                        },
+                        "archetype_node_id": "at0002"
+                    }
+                ],
+                "archetype_node_id": "at0001"
+            },
+            "archetype_node_id": "openEHR-EHR-OBSERVATION.cardiovascularriskfactors.v0"
+        }
+    ],
+    "archetype_node_id": "openEHR-EHR-COMPOSITION.data_collection.v0"
+}
