@@ -6,7 +6,7 @@ import requests
 from streamlit_lottie import st_lottie
 
 
-from streamlit_cookies_manager import EncryptedCookieManager
+from encrypted_cookie_manager import EncryptedCookieManager
 
 st.set_page_config(page_title="Json stuff", page_icon=":hospital:", layout="centered")
 
