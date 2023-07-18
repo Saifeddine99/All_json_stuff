@@ -20,7 +20,6 @@ if not cookies.ready():
     st.stop()
 
 if("user" not in cookies):
-    st.write("here user")
     nav_script = """
     <meta http-equiv="refresh" content="0; url='%s'">
     """ % ("https://rdi.behit.net/redgdps/login")
@@ -32,16 +31,16 @@ if("user" not in cookies):
 
 selected=option_menu(
     menu_title="Main Menu",
-    options=["Home","Create json","Get Treatment"],
-    icons=["house","filetype-json","capsule"],
+    options=["Home","Create json","Get Treatment","Log out"],
+    icons=["house","filetype-json","capsule","box-arrow-right"],
     menu_icon="cast",
     default_index=0,
     orientation="horizontal",
     styles={
                 "container": {"padding": "0!important", "background-color": "#fafafa"},
-                "icon": {"color": "orange", "font-size": "25px"},
+                "icon": {"color": "orange", "font-size": "16px"},
                 "nav-link": {
-                    "font-size": "25px",
+                    "font-size": "18px",
                     "text-align": "left",
                     "margin": "0px",
                     "--hover-color": "#eee",
@@ -70,3 +69,11 @@ if selected=="Create json":
     patient_EHRs()
 if selected=="Get Treatment":
     main_get_treat()
+if selected=="Log out":
+    cookies.pop("user")
+    nav_script = """
+    <meta http-equiv="refresh" content="0; url='%s'">
+    """ % ("https://rdi.behit.net/redgdps/login")
+    st.write(nav_script, unsafe_allow_html=True)
+    
+
