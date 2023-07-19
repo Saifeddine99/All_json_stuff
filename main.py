@@ -5,7 +5,7 @@ from Json_files_treat_recommendation.main_treat_recom import main_get_treat
 import requests
 from streamlit_lottie import st_lottie
 
-
+import utils
 from streamlit_cookies_manager import EncryptedCookieManager
 
 st.set_page_config(page_title="Json stuff", page_icon=":hospital:", layout="centered")
@@ -28,7 +28,7 @@ if("user" not in cookies):
     """ % ("https://rdi.behit.net/redgdps/login")
     st.write(nav_script, unsafe_allow_html=True)
 
-
+utils.local_css("styles.css")
 
 
 def load_lottieurl(url):
@@ -56,6 +56,9 @@ selected=option_menu(
                 "nav-link-selected": {"background-color": "green"},
             },
 )
+
+
+
 
 lottie_create_json = load_lottieurl("https://lottie.host/1c02cdb3-669b-405d-a2a0-bc60da003400/k757wwytXM.json")
 lottie_treatment = load_lottieurl("https://lottie.host/19713cf4-b810-4c41-ac44-a3206e833307/hWghUpQBeJ.json")
