@@ -8,6 +8,8 @@ from streamlit_lottie import st_lottie
 import utils
 from streamlit_cookies_manager import EncryptedCookieManager
 
+from encrypted_cookie_manager import EncryptedCookieManager
+
 st.set_page_config(page_title="Json stuff", page_icon=":hospital:", layout="centered")
 
 # This should be on top of your script
@@ -39,7 +41,7 @@ def load_lottieurl(url):
 
 selected=option_menu(
     menu_title="Main Menu",
-    options=["Home","Create json","Get Treatment","Log out"],
+    options=["Home","Create json","Treatment","Log out"],
     icons=["house","filetype-json","capsule","box-arrow-right"],
     menu_icon="cast",
     default_index=0,
@@ -84,14 +86,14 @@ if selected=="Home":
         st.write('#')
         st.write('#')
         st.write('#')
-        st.subheader("2/Click on 'Get treatment' to enter your EHRs's json file and get treatment")
+        st.subheader("2/Click on 'Treatment' to enter your EHRs's json file and get treatment")
     with anim:
         st_lottie(lottie_treatment, height=200, key="teatment_recommendation")
 
 
 if selected=="Create json":
     patient_EHRs()
-if selected=="Get Treatment":
+if selected=="Treatment":
     main_get_treat()
 if selected=="Log out":
     cookies.pop("user")
