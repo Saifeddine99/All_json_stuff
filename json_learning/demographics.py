@@ -96,7 +96,7 @@ def demographic_data():
 
         #Getting Country :
         st.subheader("Country:")
-        country=st.text_input("Cuurent_country Identifier")
+        country=st.text_input("Current_country Identifier",label_visibility ="hidden")
         if (len(country)==0):
             st.warning(": You entered nothing !" ,icon="⚠️")
 
