@@ -5,7 +5,8 @@ import json
 import os
 
 def demographic_data():
-    full_path_demographic_data = os.path.join('json_learning', 'patient.v0_20230713112750_000001_1.json')
+    #'patient.v0_20230713112750_000001_1.json': This is a json file containing standard demographic data in the OpenEHR standards form
+    full_path_demographic_data = os.path.join('json_files_creation', 'patient.v0_20230713112750_000001_1.json')
 
     st.write("#")
 
@@ -144,7 +145,7 @@ def demographic_data():
 
         #demographic data:
         json_object_demographic_data=add_demographic_data(json_object_demographic_data,name,surname,dni,status,birthday,country_of_birth,province_birth,town_birth,street_name,street_number,postal_code,country,province,town)
-
+        
         json_object_demographic_data = json.dumps(json_object_demographic_data, indent=4)
 
         st.write("#")
@@ -162,7 +163,7 @@ def demographic_data():
         st.write("#")
         st.error(": One of the values you entered is invalid, Please check them carefully!",icon="⛔")
 
-
+#This function adds the submitted demographic_data to the demographics json file 
 def add_demographic_data(json_object_demographic_data,name,surname,dni,status,birthday,country_of_birth,province_birth,town_birth,street_name,street_number,postal_code,country,province,town):
 
     #Birth data:
@@ -190,7 +191,7 @@ def add_demographic_data(json_object_demographic_data,name,surname,dni,status,bi
 
     return(json_object_demographic_data)
 
-
+#This function checks if the user submitted a right DNI or not
 def correct_dni(dni):
     try:
         value=int(dni[:8])

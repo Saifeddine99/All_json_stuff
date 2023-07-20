@@ -37,6 +37,7 @@ def clinical_cond():
     return(frailty,heart_failure,established_CVD,hepatic_steatosis,strokes)
 
 #-----------------------------------------------------------------------------------------------------------    
+#previous state is a function that allows streamlit to know if it's patient's 1st time to get treatment or not...
 def previous_state():    
     st.subheader("Treatment history:")
     previous_state_ = st.selectbox(

@@ -1,16 +1,16 @@
 import streamlit as st
 
-from json_learning.clinical_condition import clinical_cond,previous_state,hba1c_records,other_analyses_records,current_medication,symptomatic,get_CVRFs
+from json_files_creation.clinical_condition import clinical_cond,previous_state,hba1c_records,other_analyses_records,current_medication,symptomatic,get_CVRFs
 
 import json
 import os
-
+#This function checks whether user forgets to submit his HbA1c records or not !
 def all_hba1czz_not_null(hba1c_records_):
     for item in hba1c_records_:
         if(item==0):
             return(False)
     return(True)
-
+#This function checks whether user forget to add his current treatment or not !
 def treatment_not_empty(current_drugs,previous_state_):
     if(bool(current_drugs)==False and previous_state_ !='First time'):
         return(False)
@@ -24,18 +24,21 @@ def clinical_data_():
 
     # This function allows us to know whether it's patient's first time to get treatment or already getting
     previous_state_ = previous_state()
-
+    #This function returns a list of HbA1C records
     hba1c_records_=hba1c_records(previous_state_)
-
+    #This function returns information about current symptoms situation 
     symptoms=symptomatic()
+    #This function returns patient's current used treatment 
     current_drugs=current_medication(previous_state_)
 
     current_BMI,current_eGFR,current_UACR=other_analyses_records()
+    #This function returns information about patient's cardiovascular risks
     CVRFs=get_CVRFs(current_BMI, current_eGFR,current_UACR)
     # Let's ask about the clinical condition :
     frailty,heart_failure,established_CVD,hepatic_steatosis,strokes=clinical_cond()
 
-    full_path_clinical_data = os.path.join('json_learning', 'MyAnalytics.v3-composition.example.json')
+    #'MyAnalytics.v3-composition.example.json': This is a json file containing standard clinical data in the OpenEHR standards form
+    full_path_clinical_data = os.path.join('json_files_creation', 'MyAnalytics.v3-composition.example.json')
 
     if(treatment_not_empty(current_drugs,previous_state_) and all_hba1czz_not_null(hba1c_records_) and (current_eGFR>0) and (current_UACR>0) and (current_BMI>0)):
         # Opening JSON files:
@@ -68,7 +71,7 @@ def clinical_data_():
         st.write("#")
         st.error(": One of the values you entered is invalid, Please check them carefully!",icon="⛔")
 
-
+#This function adds the submitted clinical data to the clinical json file 
 def add_clinical_data(json_object_clincal_data,frailty,heart_failure,established_CVD,hepatic_steatosis,strokes,symptoms,hba1c_records_,current_eGFR,current_UACR,current_drugs,current_BMI,CVRFs):
     if(frailty=="YES"):
         json_object_clincal_data["content"][0]["data"]["events"][0]["data"]["items"][2]["value"]["symbol"]["value"]=frailty

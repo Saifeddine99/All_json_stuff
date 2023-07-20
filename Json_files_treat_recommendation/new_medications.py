@@ -32,14 +32,14 @@ def new_med(proposed_med,next_date):
     st.subheader("If you are satisfied with the recommended treatment, Click on the 'Download' button below to save data in the OpenEHR standards form:")
     
     st.write("#")
-
+    #'MedicationRecommendation.v0-composition.example.json' is the form of file we will follow in saving new recommended treatment 
     full_path = os.path.join('Json_files_treat_recommendation', 'MedicationRecommendation.v0-composition.example.json')
 
     # Opening JSON file
     with open(full_path, 'r') as openfile:
         # Reading from json file
         json_object = json.load(openfile)
-
+    #Here we are addding the new treatment to the file 
     for number in range(len(df)):
         drug=df['recommended_Drug'][number]
         dose=df['recommended_Dose'][number]
@@ -53,6 +53,7 @@ def new_med(proposed_med,next_date):
 
     col1, col2, col3 = st.columns([4,2,3])
     with col2:
+        #This is a download button that allows to download the created new treatment file 
         download_button = st.download_button('Download', json_object, file_name="recommended_treatment.json")
     
     if (download_button):

@@ -69,7 +69,7 @@ def recommended_treatment(med_dose_last_time,hba1c_records,target,symptoms):
                 proposed_med["Visit a doctor"]="Critical situation"
         else:
             proposed_med["You can choose any item from this list: {}".format(niad_list)]=medium_dose
-    # Here we're working on Metformin + only one drug from the list
+    # Here we're working on Metformin + only one drug from the niad_list
     elif ((len(med_dose_last_time)==2 and not("nonpharmacological therapy" in med_dose_last_time)) or (("nonpharmacological therapy" in med_dose_last_time) and len(med_dose_last_time)==3)) and niad_check(med_dose_last_time)==1 and not("Basal insulin" in med_dose_last_time) and ("Metformin" in med_dose_last_time):
         if(symptoms=="YES" and current_hba1c>9 and not("nonpharmacological therapy" in med_dose_last_time)):
             proposed_med={} 
@@ -98,7 +98,7 @@ def recommended_treatment(med_dose_last_time,hba1c_records,target,symptoms):
             else:
                 proposed_med={}
                 proposed_med["Visit a doctor"]="Critical situation"
-    # Here we're working on Metformin + strictly more than 1 drug from the list
+    # Here we're working on Metformin + strictly more than 1 drug from the niad_list
     elif ((len(med_dose_last_time)>=3 and not("nonpharmacological therapy" in med_dose_last_time)) or (("nonpharmacological therapy" in med_dose_last_time) and len(med_dose_last_time)>=4)) and not("Basal insulin" in med_dose_last_time) and ("Metformin" in med_dose_last_time) and niad_check(med_dose_last_time)>=2:
         
         if("DPP4i" in med_dose_last_time):
