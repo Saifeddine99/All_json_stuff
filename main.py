@@ -13,24 +13,6 @@ from encrypted_cookie_manager import EncryptedCookieManager
 #this function allows to add the page title and icon
 st.set_page_config(page_title="Json stuff", page_icon=":hospital:", layout="centered")
 
-# This should be on top of your script
-cookies = EncryptedCookieManager(
-    # This prefix will get added to all your cookie names.
-    # This way you can run your app on Streamlit Cloud without cookie name clashes with other apps.
-    prefix="",
-    # You should really setup a long COOKIES_PASSWORD secret if you're running on Streamlit Cloud.
-    password="",
-)
-if not cookies.ready():
-    # Wait for the component to load and send us current cookies.
-    st.stop()
-
-if("user" not in cookies):
-    nav_script = """
-    <meta http-equiv="refresh" content="0; url='%s'">
-    """ % ("https://rdi.behit.net/redgdps/login")
-    st.write(nav_script, unsafe_allow_html=True)
-
 utils.local_css("styles.css")
 #this function allows adding animations to the web app
 def load_lottieurl(url):
@@ -100,10 +82,11 @@ if selected=="Treatment":
     main_get_treat()
 #If the user selects "Log out" from the option menu, Streamlit will run this "if" condition and he will be back to the authentification stage
 if selected=="Log out":
-    cookies.pop("user")
-    nav_script = """
-    <meta http-equiv="refresh" content="0; url='%s'">
-    """ % ("https://rdi.behit.net/redgdps/login")
-    st.write(nav_script, unsafe_allow_html=True)
+    st.write("this task is still unavailable")
+    #cookies.pop("user")
+    #nav_script = """
+    #<meta http-equiv="refresh" content="0; url='%s'">
+    #""" % ("https://rdi.behit.net/redgdps/login")
+    #st.write(nav_script, unsafe_allow_html=True)
     
 
