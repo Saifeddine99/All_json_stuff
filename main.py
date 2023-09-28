@@ -6,9 +6,9 @@ import requests
 from streamlit_lottie import st_lottie
 
 import utils
-from streamlit_cookies_manager import EncryptedCookieManager
+#from streamlit_cookies_manager import EncryptedCookieManager
 
-from encrypted_cookie_manager import EncryptedCookieManager
+#from encrypted_cookie_manager import EncryptedCookieManager
 
 #this function allows to add the page title and icon
 st.set_page_config(page_title="Json stuff", page_icon=":hospital:", layout="centered")
